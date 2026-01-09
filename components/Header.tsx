@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface HeaderProps {
@@ -11,6 +10,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, contactInfo }) => {
     { label: 'Home', id: 'home' },
     { label: 'Skills', id: 'skills' },
     { label: 'Experience', id: 'experience' },
+    { label: 'Certs', id: 'certifications' },
     { label: 'References', id: 'references' },
     { label: 'Education', id: 'education' },
   ];
