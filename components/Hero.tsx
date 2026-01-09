@@ -6,9 +6,10 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
   const [useFallback, setUseFallback] = useState(false);
 
-  // We try the local file first. If it fails, we switch to the web backup.
+  // Attempt the local file first, then fallback to web if it fails
   const profileSrc = useFallback ? contactInfo.fallbackImage : contactInfo.profileImage;
 
   return (
@@ -84,30 +85,36 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
           {/* Right Column: Image */}
           <div className="lg:col-span-5 relative no-print">
             <div className="relative group">
+              {/* Background Glow */}
               <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600 to-blue-400 rounded-[3.5rem] opacity-10 group-hover:opacity-20 transition-opacity blur-2xl"></div>
               
               <div className="relative aspect-[4/5] overflow-hidden rounded-[3rem] border-8 border-white shadow-2xl bg-slate-50 flex items-center justify-center">
-                {/* We use key={profileSrc} to force the browser to re-render the image tag when the source changes */}
+                
+                {/* 1. Permanent Placeholder Layer (Shows while loading) */}
+                <div className="absolute inset-0 flex items-center justify-center bg-slate-100">
+                   <span className="text-8xl font-black text-slate-300 uppercase select-none tracking-tighter">BB</span>
+                </div>
+
+                {/* 2. Image Layer (Fades in when ready) */}
                 <img 
-                  key={profileSrc}
                   src={profileSrc} 
-                  alt=""
-                  onError={() => {
+                  alt={contactInfo.name}
+                  onLoad={() => {
+                    console.log("Profile image loaded successfully");
+                    setIsLoaded(true);
+                  }}
+                  onError={(e) => {
+                    console.error("Image failed to load:", profileSrc);
                     if (!useFallback) {
-                      console.log("Local image failed, trying fallback...");
                       setUseFallback(true);
                     }
                   }}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 ${isLoaded ? 'opacity-100 blur-0 scale-100' : 'opacity-0 blur-lg scale-110'}`}
                 />
-                
-                {/* Initials overlay that only shows if the image is truly missing */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none bg-slate-100 z-[-1]">
-                   <span className="text-8xl font-black text-slate-300 uppercase select-none">BB</span>
-                </div>
               </div>
               
-              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl border border-slate-50 flex items-center space-x-4 animate-bounce-subtle">
+              {/* Experience Badge */}
+              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl border border-slate-50 flex items-center space-x-4 animate-bounce-subtle z-20">
                 <div className="bg-blue-100 p-2 rounded-xl text-blue-600">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
