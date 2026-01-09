@@ -9,9 +9,10 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
   return (
     <section id={id} className="relative pt-32 pb-20 overflow-hidden bg-white">
       {/* Design Elements - Subtle gradients for a modern look */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-slate-50/50 to-transparent -skew-x-12 transform origin-top no-print"></div>
+      {/* Added pointer-events-none to ensure this doesn't block clicks on the buttons below it */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-slate-50/50 to-transparent -skew-x-12 transform origin-top no-print pointer-events-none z-0"></div>
       
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-6 z-10">
         <div className="max-w-4xl">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold tracking-widest uppercase mb-8 no-print border border-blue-100">
             <span className="relative flex h-2 w-2">
@@ -35,7 +36,8 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
               href={contactInfo.resumeUrl}
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-slate-900 text-white px-10 py-5 rounded-2xl font-bold hover:bg-slate-800 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center space-x-3 group"
+              title="Open Resume in new tab"
+              className="bg-slate-900 text-white px-10 py-5 rounded-2xl font-bold hover:bg-slate-800 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center space-x-3 group cursor-pointer"
             >
               <span>View Resume</span>
               <svg className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -46,7 +48,8 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
               href={contactInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-slate-900 border-2 border-slate-100 px-10 py-5 rounded-2xl font-bold hover:bg-slate-50 transition-all flex items-center space-x-3 hover:border-blue-200"
+              title="Visit LinkedIn Profile"
+              className="bg-white text-slate-900 border-2 border-slate-100 px-10 py-5 rounded-2xl font-bold hover:bg-slate-50 transition-all flex items-center space-x-3 hover:border-blue-200 cursor-pointer"
             >
               <span>View LinkedIn</span>
               <svg className="w-5 h-5 text-[#0077b5]" fill="currentColor" viewBox="0 0 24 24">
