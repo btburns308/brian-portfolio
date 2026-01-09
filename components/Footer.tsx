@@ -45,8 +45,8 @@ const Footer: React.FC<FooterProps> = ({ contactInfo }) => {
 
         <div className="mt-20 pt-10 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
           <p>© {new Date().getFullYear()} Brian Burns. All rights reserved.</p>
-          <div className="flex gap-8">
-            <span className="font-medium italic">Operations & BI Specialist</span>
+          <div className="flex gap-8 text-right">
+            <span className="font-medium italic">Operations & Business Intelligence Specialist</span>
             <span>Based in Georgia</span>
           </div>
         </div>
