@@ -1,4 +1,3 @@
-
 import { Experience, SkillCategory, Reference, Education } from './types';
 
 export const CONTACT_INFO = {
@@ -7,6 +6,8 @@ export const CONTACT_INFO = {
   phone: "(321) 591-4426",
   email: "btburns308@icloud.com",
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
+  // Ensure this file is in the 'public' folder of your project
+  resumeUrl: "/Brian_Burns_Resume.pdf", 
   summary: "Extensive experience in large scale operational management, process improvement initiatives, business analysis, business intelligence, and systems analyst roles.",
   headline: "Operations / Business / Business Intelligence Analyst"
 };
@@ -113,7 +114,6 @@ export const EDUCATION: Education[] = [
   }
 ];
 
-// References from LinkedIn as requested (Simulated based on common professional endorsements)
 export const REFERENCES: Reference[] = [
   {
     name: "LinkedIn Endorsement",
