@@ -1,4 +1,4 @@
-import { Experience, SkillCategory, Reference, Education } from './types';
+import { Experience, SkillCategory, Reference, Education, Certification } from './types';
 
 export const CONTACT_INFO = {
   name: "Brian Burns",
@@ -111,6 +111,15 @@ export const EDUCATION: Education[] = [
     institution: "Chattahoochee Technical College",
     location: "Marietta, GA",
     details: "8 hours of IT coursework (4.00 GPA)"
+  }
+];
+
+export const CERTIFICATIONS: Certification[] = [
+  {
+    name: "Microsoft Certified: Power BI Data Analyst Associate",
+    issuer: "Microsoft",
+    date: "2024",
+    status: "In Progress"
   }
 ];
 
