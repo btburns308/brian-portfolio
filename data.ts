@@ -6,9 +6,9 @@ export const CONTACT_INFO = {
   phone: "(321) 591-4426",
   email: "btburns308@icloud.com",
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
-  // Path to the local file. No leading slash is often more compatible with local dev servers.
-  profileImage: "brian-burns.jpg", 
-  // Removed the stock photo fallback to prevent showing the wrong person.
+  // This calculates the absolute URL of the image relative to this code file.
+  // It handles hosting in subfolders (like /brian-portfolio/) automatically.
+  profileImage: new URL('./brian-burns.jpg', import.meta.url).href, 
   fallbackImage: "", 
   resumeUrl: "Brian_Burns_Resume.pdf", 
   summary: "Extensive experience in large scale operational management, process improvement initiatives, business analysis, business intelligence, and systems analyst roles.",
