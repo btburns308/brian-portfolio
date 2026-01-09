@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Burns | Operations & BI Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        #print-header {
+            display: none;
+        }
+
+        @media print {
+            .no-print, header, footer, #talk-tech-banner, .mobile-contact-trigger {
+                display: none !important;
+            }
+            #print-header {
+                display: block !important;
+                border-bottom: 2px solid #2563eb;
+                padding-bottom: 1rem;
+                margin-bottom: 2rem;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 10pt;
+                line-height: 1.4;
+            }
+            main {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            section {
+                padding: 1rem 0 !important;
+                page-break-inside: avoid;
+            }
+            h1 { font-size: 22pt !important; margin-bottom: 0.25rem !important; }
+            h2 { font-size: 14pt !important; margin-top: 1.5rem !important; color: #2563eb !important; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
+            h3 { font-size: 12pt !important; color: black !important; font-weight: bold; }
+            .bg-white, .bg-gray-50 {
+                background-color: transparent !important;
+            }
+            .text-blue-600 {
+                color: #2563eb !important;
+            }
+            .shadow-sm, .shadow-xl, .shadow-lg {
+                box-shadow: none !important;
+                border: none !important;
+            }
+            .rounded-3xl, .rounded-2xl, .rounded-xl {
+                border-radius: 0 !important;
+                padding: 0 !important;
+                border: none !important;
+            }
+            .absolute { display: none !important; }
+            .flex-row-reverse { flex-direction: row !important; }
+            .w-\[45\%\] { width: 100% !important; }
+            .grid { display: block !important; }
+            .grid > div { margin-bottom: 1.5rem; }
+            li { margin-bottom: 0.25rem; }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "vite": "https://esm.sh/vite@^7.3.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-gray-50 text-gray-900 selection:bg-blue-100">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
