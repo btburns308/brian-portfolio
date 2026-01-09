@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface HeroProps {
   contactInfo: any;
@@ -8,6 +8,15 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+
+  // Debugging helper
+  useEffect(() => {
+    if (hasError) {
+      console.warn(`[PORTFOLIO TIP]: Could not find the image at "${contactInfo.profileImage}". 
+      1. Ensure the file is named exactly "${contactInfo.profileImage}" (case sensitive).
+      2. Ensure it is in the root folder next to index.html.`);
+    }
+  }, [hasError, contactInfo.profileImage]);
 
   return (
     <section id={id} className="relative pt-32 pb-20 overflow-hidden bg-white">
@@ -29,10 +38,12 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 mb-8 leading-[0.95] tracking-tight text-balance">
               {contactInfo.name}. <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-600 to-slate-400">Operations & BI.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-600 to-slate-400">
+                Operations & <br className="sm:hidden" /> Business Intelligence.
+              </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-slate-600 mb-12 leading-relaxed max-w-2xl font-light">
+            <p className="text-xl md:text-2xl text-slate-600 mb-12 leading-relaxed max-w-2xl font-light text-balance">
               An expert at bridging the gap between <span className="text-slate-900 font-medium italic underline decoration-blue-200 underline-offset-4">complex data</span> and <span className="text-slate-900 font-medium italic underline decoration-blue-200 underline-offset-4">operational excellence.</span>
             </p>
 
@@ -72,7 +83,7 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
               </div>
               <div className="group">
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 group-hover:text-blue-500 transition-colors">Email</p>
-                <p className="text-slate-900 font-medium hover:text-blue-600 transition-colors">
+                <p className="text-slate-900 font-medium hover:text-blue-600 transition-colors underline decoration-slate-200 decoration-1 underline-offset-4">
                   <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
                 </p>
               </div>
@@ -87,28 +98,28 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
               
               <div className="relative aspect-[4/5] overflow-hidden rounded-[3rem] border-8 border-white shadow-2xl bg-slate-100 flex items-center justify-center">
                 
-                {/* 1. Professional Initials Placeholder (Visible by default and if load fails) */}
-                <div className={`absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-slate-800 to-slate-950 transition-opacity duration-500 ${isLoaded ? 'opacity-0' : 'opacity-100'}`}>
-                   <span className="text-9xl font-black text-white/10 uppercase select-none tracking-tighter absolute">BB</span>
+                {/* 1. Enhanced Placeholder (Initials + Name) */}
+                <div className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ${isLoaded ? 'opacity-0' : 'opacity-100 bg-gradient-to-br from-slate-900 to-slate-800'}`}>
+                   {/* Shimmer Effect */}
+                   <div className="absolute inset-0 overflow-hidden">
+                      <div className="absolute inset-0 translate-x-[-100%] animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+                   </div>
+
+                   <span className="text-[12rem] font-black text-white/5 uppercase select-none tracking-tighter absolute">BB</span>
                    <div className="z-10 text-center px-8">
-                     <p className="text-white font-bold text-2xl tracking-tight mb-1">{contactInfo.name}</p>
-                     <p className="text-blue-400 text-xs font-black uppercase tracking-widest">Operations & BI Specialist</p>
+                     <div className="w-20 h-1 bg-blue-500 mx-auto mb-6 rounded-full opacity-50"></div>
+                     <p className="text-white font-bold text-3xl tracking-tight mb-2">{contactInfo.name}</p>
+                     <p className="text-blue-400 text-[10px] font-black uppercase tracking-[0.2em]">Operations & Business Intelligence</p>
                    </div>
                 </div>
 
-                {/* 2. Actual Image */}
+                {/* 2. Actual Image (Hidden until loaded or if error) */}
                 {!hasError && (
                   <img 
                     src={contactInfo.profileImage} 
                     alt={contactInfo.name}
-                    onLoad={() => {
-                      console.log("Photo loaded successfully");
-                      setIsLoaded(true);
-                    }}
-                    onError={() => {
-                      console.error("Photo failed to load from:", contactInfo.profileImage);
-                      setHasError(true);
-                    }}
+                    onLoad={() => setIsLoaded(true)}
+                    onError={() => setHasError(true)}
                     className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`}
                   />
                 )}
@@ -136,6 +147,9 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
         @keyframes bounce-subtle {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-10px); }
+        }
+        @keyframes shimmer {
+          100% { transform: translateX(100%); }
         }
         .animate-bounce-subtle {
           animation: bounce-subtle 4s ease-in-out infinite;
