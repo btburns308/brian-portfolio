@@ -7,10 +7,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [useFallback, setUseFallback] = useState(false);
-
-  // Attempt the local file first, then fallback to web if it fails
-  const profileSrc = useFallback ? contactInfo.fallbackImage : contactInfo.profileImage;
+  const [hasError, setHasError] = useState(false);
 
   return (
     <section id={id} className="relative pt-32 pb-20 overflow-hidden bg-white">
@@ -88,29 +85,33 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
               {/* Background Glow */}
               <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600 to-blue-400 rounded-[3.5rem] opacity-10 group-hover:opacity-20 transition-opacity blur-2xl"></div>
               
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[3rem] border-8 border-white shadow-2xl bg-slate-50 flex items-center justify-center">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[3rem] border-8 border-white shadow-2xl bg-slate-100 flex items-center justify-center">
                 
-                {/* 1. Permanent Placeholder Layer (Shows while loading) */}
-                <div className="absolute inset-0 flex items-center justify-center bg-slate-100">
-                   <span className="text-8xl font-black text-slate-300 uppercase select-none tracking-tighter">BB</span>
+                {/* 1. Professional Initials Placeholder (Visible by default and if load fails) */}
+                <div className={`absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-slate-800 to-slate-950 transition-opacity duration-500 ${isLoaded ? 'opacity-0' : 'opacity-100'}`}>
+                   <span className="text-9xl font-black text-white/10 uppercase select-none tracking-tighter absolute">BB</span>
+                   <div className="z-10 text-center px-8">
+                     <p className="text-white font-bold text-2xl tracking-tight mb-1">{contactInfo.name}</p>
+                     <p className="text-blue-400 text-xs font-black uppercase tracking-widest">Operations & BI Specialist</p>
+                   </div>
                 </div>
 
-                {/* 2. Image Layer (Fades in when ready) */}
-                <img 
-                  src={profileSrc} 
-                  alt={contactInfo.name}
-                  onLoad={() => {
-                    console.log("Profile image loaded successfully");
-                    setIsLoaded(true);
-                  }}
-                  onError={(e) => {
-                    console.error("Image failed to load:", profileSrc);
-                    if (!useFallback) {
-                      setUseFallback(true);
-                    }
-                  }}
-                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 ${isLoaded ? 'opacity-100 blur-0 scale-100' : 'opacity-0 blur-lg scale-110'}`}
-                />
+                {/* 2. Actual Image */}
+                {!hasError && (
+                  <img 
+                    src={contactInfo.profileImage} 
+                    alt={contactInfo.name}
+                    onLoad={() => {
+                      console.log("Photo loaded successfully");
+                      setIsLoaded(true);
+                    }}
+                    onError={() => {
+                      console.error("Photo failed to load from:", contactInfo.profileImage);
+                      setHasError(true);
+                    }}
+                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`}
+                  />
+                )}
               </div>
               
               {/* Experience Badge */}
