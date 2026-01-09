@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Experience } from '../types';
 
@@ -8,64 +7,49 @@ interface ExperienceProps {
 
 const ExperienceSection: React.FC<ExperienceProps> = ({ experiences }) => {
   return (
-    <div className="max-w-6xl mx-auto px-6">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
-        <div>
-          <h2 className="text-3xl font-bold text-gray-900 flex items-center">
-            <span className="w-8 h-1 bg-blue-600 mr-4"></span>
-            Professional Journey
-          </h2>
-          <p className="mt-4 text-gray-600 max-w-xl">
-            A track record of success in operational excellence and business intelligence systems.
-          </p>
-        </div>
+    <div className="max-w-4xl mx-auto px-6">
+      <div className="mb-20">
+        <h2 className="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Professional History</h2>
+        <p className="text-slate-500 text-lg font-light">Over a decade of driving growth through data-backed strategies.</p>
       </div>
 
-      <div className="relative space-y-12">
-        {/* Vertical line for desktop */}
-        <div className="absolute left-[20px] md:left-[50%] top-0 bottom-0 w-px bg-gray-200 hidden md:block"></div>
-
+      <div className="space-y-16">
         {experiences.map((exp, idx) => (
-          <div key={idx} className={`relative flex flex-col md:flex-row items-center gap-8 ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-            {/* Timeline node */}
-            <div className="absolute left-[20px] md:left-[50%] w-10 h-10 -ml-5 bg-white border-4 border-blue-600 rounded-full z-10 hidden md:block"></div>
+          <div key={idx} className="group relative pl-10 md:pl-0">
+            {/* Timeline Line */}
+            <div className="absolute left-0 top-0 bottom-0 w-px bg-slate-200 md:left-1/2 md:-ml-px"></div>
             
-            {/* Content side */}
-            <div className="w-full md:w-[45%]">
-              <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:shadow-gray-100 transition-all duration-300 group">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <span className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-full mb-2 tracking-wide uppercase">
-                      {exp.period}
-                    </span>
-                    <h3 className="text-xl font-extrabold text-gray-900 group-hover:text-blue-600 transition-colors">
-                      {exp.role}
-                    </h3>
-                  </div>
+            <div className={`md:flex items-start gap-16 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+              <div className="md:w-1/2 mb-4 md:mb-0">
+                <div className={`${idx % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                  <span className="inline-block px-3 py-1 bg-slate-900 text-white text-[10px] font-black rounded-full mb-4 tracking-tighter uppercase">
+                    {exp.period}
+                  </span>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-1 leading-tight group-hover:text-blue-600 transition-colors">
+                    {exp.role}
+                  </h3>
+                  <p className="text-lg font-semibold text-slate-500 mb-2">{exp.company}</p>
+                  <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">{exp.location}</p>
                 </div>
-                
-                <div className="mb-6">
-                  <p className="font-bold text-gray-800">{exp.company}</p>
-                  <p className="text-sm text-gray-500">{exp.location}</p>
-                </div>
+              </div>
 
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 italic">
+              {/* Dot */}
+              <div className="absolute left-[-5px] top-0 w-[11px] h-[11px] bg-white border-2 border-slate-900 rounded-full z-10 md:left-1/2 md:ml-[-5.5px]"></div>
+
+              <div className="md:w-1/2">
+                <p className="text-slate-600 text-sm leading-relaxed mb-6 font-medium">
                   {exp.description}
                 </p>
-
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {exp.achievements.map((ach, aIdx) => (
-                    <li key={aIdx} className="flex items-start text-sm text-gray-700">
-                      <span className="mr-3 text-blue-600 mt-1 font-bold">▪</span>
+                    <li key={aIdx} className="flex items-start text-sm text-slate-600 leading-snug">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-3 shrink-0"></span>
                       <span>{ach}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
-
-            {/* Empty side for layout on desktop */}
-            <div className="hidden md:block w-[45%]"></div>
           </div>
         ))}
       </div>
