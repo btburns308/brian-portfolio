@@ -31,3 +31,10 @@ export interface Education {
   location: string;
   details?: string;
 }
+
+export interface Certification {
+  name: string;
+  issuer: string;
+  date: string;
+  status?: string;
+}
