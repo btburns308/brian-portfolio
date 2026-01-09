@@ -9,8 +9,8 @@ const ExperienceSection: React.FC<ExperienceProps> = ({ experiences }) => {
   return (
     <div className="max-w-4xl mx-auto px-6">
       <div className="mb-20">
-        <h2 className="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Professional History</h2>
-        <p className="text-slate-500 text-lg font-light">Over a decade of driving growth through data-backed strategies.</p>
+        <h2 className="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight text-balance">Professional Milestones</h2>
+        <p className="text-slate-500 text-lg font-light">A timeline of driving operational excellence and data-backed growth.</p>
       </div>
 
       <div className="space-y-16">
@@ -34,7 +34,7 @@ const ExperienceSection: React.FC<ExperienceProps> = ({ experiences }) => {
               </div>
 
               {/* Dot */}
-              <div className="absolute left-[-5px] top-0 w-[11px] h-[11px] bg-white border-2 border-slate-900 rounded-full z-10 md:left-1/2 md:ml-[-5.5px]"></div>
+              <div className="absolute left-[-5px] top-0 w-[11px] h-[11px] bg-white border-2 border-slate-900 rounded-full z-10 md:left-1/2 md:ml-[-5.5px] group-hover:bg-blue-600 group-hover:scale-125 transition-all"></div>
 
               <div className="md:w-1/2">
                 <p className="text-slate-600 text-sm leading-relaxed mb-6 font-medium">
