@@ -6,10 +6,10 @@ export const CONTACT_INFO = {
   phone: "(321) 591-4426",
   email: "btburns308@icloud.com",
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
-  // TO REPLACE: 
-  // 1. Upload your photo to your project folder
-  // 2. Change 'brian-burns.jpg' below to your actual filename
-  profileImage: "brian-burns.jpg", 
+  // Using an absolute path to ensure the browser finds the file at the project root
+  profileImage: "/brian-burns.jpg", 
+  // High-quality web fallback if the local file is missing or corrupted
+  fallbackImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800&h=1000",
   resumeUrl: "/Brian_Burns_Resume.pdf", 
   summary: "Extensive experience in large scale operational management, process improvement initiatives, business analysis, business intelligence, and systems analyst roles.",
   headline: "Operations / Business / Business Intelligence Analyst"
