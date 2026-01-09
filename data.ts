@@ -6,11 +6,11 @@ export const CONTACT_INFO = {
   phone: "(321) 591-4426",
   email: "btburns308@icloud.com",
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
-  // This calculates the absolute URL of the image relative to this code file.
-  // It handles hosting in subfolders (like /brian-portfolio/) automatically.
+  // Resolves path relative to this file
   profileImage: new URL('./brian-burns.jpg', import.meta.url).href, 
   fallbackImage: "", 
-  resumeUrl: "Brian_Burns_Resume.pdf", 
+  // Applying same robust logic to the resume file
+  resumeUrl: new URL('./Brian_Burns_Resume.pdf', import.meta.url).href, 
   summary: "Extensive experience in large scale operational management, process improvement initiatives, business analysis, business intelligence, and systems analyst roles.",
   headline: "Operations / Business / Business Intelligence Analyst"
 };
@@ -26,7 +26,7 @@ export const PROFESSIONAL_EXPERIENCE: Experience[] = [
       "Managing the company's enterprise reporting database (Azure SQL) through the monthly close-out process involving complex data transformation and ETL imports (SSIS/SQL Agent jobs).",
       "Achieved 100% balance to company volume, receivables and liquidations during entire tenure.",
       "Executing, validating and delivering monthly, quarterly, and fiscal quarterly cadence reports for the entire enterprise (50+ currently).",
-      "One of three core BI members for new report development, testing and release in Azure SQL via Tableau Server / Power BI.",
+      "One of three core Business Intelligence members for new report development, testing and release in Azure SQL via Tableau Server / Power BI.",
       "Developed, tested and re-deployed over 30 pre-existing core business reports in Tableau Server, drastically decreasing report load times."
     ]
   },
