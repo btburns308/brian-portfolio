@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface FooterProps {
@@ -30,6 +29,7 @@ const Footer: React.FC<FooterProps> = ({ contactInfo }) => {
               <ul className="space-y-4">
                 <li><a href="#home" className="text-gray-300 hover:text-white transition-colors">Home</a></li>
                 <li><a href="#experience" className="text-gray-300 hover:text-white transition-colors">Experience</a></li>
+                <li><a href="#certifications" className="text-gray-300 hover:text-white transition-colors">Certifications</a></li>
                 <li><a href="#skills" className="text-gray-300 hover:text-white transition-colors">Skills</a></li>
                 <li><a href="#references" className="text-gray-300 hover:text-white transition-colors">References</a></li>
               </ul>
