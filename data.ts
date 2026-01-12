@@ -1,14 +1,18 @@
 import { Experience, SkillCategory, Reference, Education, Certification } from './types';
 
+// @ts-ignore - Vite will handle these imports and provide the correct URL string
+import profileImg from './brian-burns.jpg';
+// @ts-ignore - Vite will handle these imports and provide the correct URL string
+import resumeFile from './Brian_Burns_Resume.pdf';
+
 export const CONTACT_INFO = {
   name: "Brian Burns",
   location: "Canton, GA 30115",
   phone: "(321) 591-4426",
   email: "btburns308@icloud.com",
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
-  // Using direct filenames for maximum compatibility
-  profileImage: "brian-burns.jpg", 
-  resumeUrl: "Brian_Burns_Resume.pdf", 
+  profileImage: profileImg, 
+  resumeUrl: resumeFile, 
   summary: "Extensive experience in large scale operational management, process improvement initiatives, business analysis, business intelligence, and systems analyst roles.",
   headline: "Operations / Business / Business Intelligence Analyst"
 };
