@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface HeroProps {
   contactInfo: any;
@@ -6,8 +6,6 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-
   return (
     <section id={id} className="relative pt-32 pb-20 overflow-hidden bg-white">
       {/* Design Elements */}
@@ -85,10 +83,10 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
               {/* Background Glow */}
               <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600 to-blue-400 rounded-[3.5rem] opacity-10 group-hover:opacity-20 transition-opacity blur-2xl"></div>
               
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[3rem] border-8 border-white shadow-2xl bg-slate-100 flex items-center justify-center">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[3rem] border-8 border-white shadow-2xl bg-slate-200 flex items-center justify-center">
                 
-                {/* 1. Placeholder (Always present, fades out if image loads) */}
-                <div className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-700 bg-gradient-to-br from-slate-900 to-slate-800 ${isLoaded ? 'opacity-0' : 'opacity-100'}`}>
+                {/* 1. Static Placeholder (Behind the image) */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 to-slate-800">
                    <span className="text-[12rem] font-black text-white/5 uppercase select-none tracking-tighter absolute">BB</span>
                    <div className="z-10 text-center px-8">
                      <div className="w-20 h-1 bg-blue-500 mx-auto mb-6 rounded-full opacity-50"></div>
@@ -97,17 +95,16 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
                    </div>
                 </div>
 
-                {/* 2. Actual Image */}
+                {/* 2. Actual Image (No longer has opacity-0 by default) */}
                 <img 
                   src={contactInfo.profileImage} 
                   alt={contactInfo.name}
-                  onLoad={() => setIsLoaded(true)}
-                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 z-20"
                 />
               </div>
               
               {/* Experience Badge */}
-              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl border border-slate-50 flex items-center space-x-4 animate-bounce-subtle z-20">
+              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl border border-slate-50 flex items-center space-x-4 animate-bounce-subtle z-30">
                 <div className="bg-blue-100 p-2 rounded-xl text-blue-600">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
