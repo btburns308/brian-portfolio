@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 interface HeroProps {
   contactInfo: any;
@@ -7,16 +7,6 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [hasError, setHasError] = useState(false);
-
-  // Debugging helper
-  useEffect(() => {
-    if (hasError) {
-      console.warn(`[PORTFOLIO TIP]: Could not find the image at "${contactInfo.profileImage}". 
-      1. Ensure the file is named exactly "${contactInfo.profileImage}" (case sensitive).
-      2. Ensure it is in the root folder next to index.html.`);
-    }
-  }, [hasError, contactInfo.profileImage]);
 
   return (
     <section id={id} className="relative pt-32 pb-20 overflow-hidden bg-white">
@@ -50,11 +40,10 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
             <div className="flex flex-wrap gap-4 mb-16 no-print">
               <a 
                 href={contactInfo.resumeUrl}
-                target="_blank" 
-                rel="noopener noreferrer"
+                download
                 className="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-slate-800 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center space-x-3 group cursor-pointer"
               >
-                <span>View Resume</span>
+                <span>Download Resume</span>
                 <svg className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
@@ -98,13 +87,8 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
               
               <div className="relative aspect-[4/5] overflow-hidden rounded-[3rem] border-8 border-white shadow-2xl bg-slate-100 flex items-center justify-center">
                 
-                {/* 1. Enhanced Placeholder (Initials + Name) */}
-                <div className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ${isLoaded ? 'opacity-0' : 'opacity-100 bg-gradient-to-br from-slate-900 to-slate-800'}`}>
-                   {/* Shimmer Effect */}
-                   <div className="absolute inset-0 overflow-hidden">
-                      <div className="absolute inset-0 translate-x-[-100%] animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
-                   </div>
-
+                {/* 1. Placeholder (Always present, fades out if image loads) */}
+                <div className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-700 bg-gradient-to-br from-slate-900 to-slate-800 ${isLoaded ? 'opacity-0' : 'opacity-100'}`}>
                    <span className="text-[12rem] font-black text-white/5 uppercase select-none tracking-tighter absolute">BB</span>
                    <div className="z-10 text-center px-8">
                      <div className="w-20 h-1 bg-blue-500 mx-auto mb-6 rounded-full opacity-50"></div>
@@ -113,16 +97,13 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
                    </div>
                 </div>
 
-                {/* 2. Actual Image (Hidden until loaded or if error) */}
-                {!hasError && (
-                  <img 
-                    src={contactInfo.profileImage} 
-                    alt={contactInfo.name}
-                    onLoad={() => setIsLoaded(true)}
-                    onError={() => setHasError(true)}
-                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`}
-                  />
-                )}
+                {/* 2. Actual Image */}
+                <img 
+                  src={contactInfo.profileImage} 
+                  alt={contactInfo.name}
+                  onLoad={() => setIsLoaded(true)}
+                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                />
               </div>
               
               {/* Experience Badge */}
@@ -147,9 +128,6 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
         @keyframes bounce-subtle {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-10px); }
-        }
-        @keyframes shimmer {
-          100% { transform: translateX(100%); }
         }
         .animate-bounce-subtle {
           animation: bounce-subtle 4s ease-in-out infinite;
