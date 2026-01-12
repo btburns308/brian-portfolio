@@ -7,47 +7,44 @@ interface ExperienceProps {
 
 const ExperienceSection: React.FC<ExperienceProps> = ({ experiences }) => {
   return (
-    <div className="max-w-4xl mx-auto px-6">
-      <div className="mb-20">
-        <h2 className="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight text-balance">Professional Milestones</h2>
-        <p className="text-slate-500 text-lg font-light">A timeline of driving operational excellence and data-backed growth.</p>
+    <div className="max-w-5xl mx-auto px-6">
+      <div className="mb-24">
+        <h2 className="text-5xl font-bold text-slate-900 mb-4 tracking-tight">Professional History</h2>
+        <div className="w-24 h-1 bg-slate-900"></div>
       </div>
 
-      <div className="space-y-16">
+      <div className="space-y-32">
         {experiences.map((exp, idx) => (
-          <div key={idx} className="group relative pl-10 md:pl-0">
-            {/* Timeline Line */}
-            <div className="absolute left-0 top-0 bottom-0 w-px bg-slate-200 md:left-1/2 md:-ml-px"></div>
-            
-            <div className={`md:flex items-start gap-16 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-              <div className="md:w-1/2 mb-4 md:mb-0">
-                <div className={`${idx % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                  <span className="inline-block px-3 py-1 bg-slate-900 text-white text-[10px] font-black rounded-full mb-4 tracking-tighter uppercase">
-                    {exp.period}
-                  </span>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-1 leading-tight group-hover:text-blue-600 transition-colors">
-                    {exp.role}
-                  </h3>
-                  <p className="text-lg font-semibold text-slate-500 mb-2">{exp.company}</p>
-                  <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">{exp.location}</p>
-                </div>
+          <div key={idx} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+            {/* Period */}
+            <div className="lg:col-span-3">
+              <span className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">
+                {exp.period}
+              </span>
+            </div>
+
+            {/* Content */}
+            <div className="lg:col-span-9">
+              <h3 className="text-3xl font-bold text-slate-900 mb-1 serif italic">
+                {exp.role}
+              </h3>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-6 text-sm font-bold text-slate-400 uppercase tracking-widest">
+                <span className="text-slate-900">{exp.company}</span>
+                <span className="hidden md:inline">•</span>
+                <span>{exp.location}</span>
               </div>
+              
+              <p className="text-lg text-slate-600 font-light leading-relaxed mb-8">
+                {exp.description}
+              </p>
 
-              {/* Dot */}
-              <div className="absolute left-[-5px] top-0 w-[11px] h-[11px] bg-white border-2 border-slate-900 rounded-full z-10 md:left-1/2 md:ml-[-5.5px] group-hover:bg-blue-600 group-hover:scale-125 transition-all"></div>
-
-              <div className="md:w-1/2">
-                <p className="text-slate-600 text-sm leading-relaxed mb-6 font-medium">
-                  {exp.description}
-                </p>
-                <ul className="space-y-4">
-                  {exp.achievements.map((ach, aIdx) => (
-                    <li key={aIdx} className="flex items-start text-sm text-slate-600 leading-snug">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 mr-3 shrink-0"></span>
-                      <span>{ach}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                {exp.achievements.map((ach, aIdx) => (
+                  <div key={aIdx} className="flex gap-4 group">
+                    <span className="text-slate-200 font-black text-xl leading-none transition-colors group-hover:text-slate-900">/</span>
+                    <p className="text-sm text-slate-600 leading-relaxed font-light">{ach}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
