@@ -80,18 +80,20 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-md aspect-[4/5] overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl bg-slate-800 flex items-center justify-center">
               
-              {/* Initials Placeholder (Visible if image fails or is loading) */}
+              {/* Initials Placeholder (Behind) */}
               <span className="absolute text-8xl font-black text-white/20 select-none">BB</span>
 
               {/* Still Picture */}
-              {!imageError && (
-                <img 
-                  src={contactInfo.profileImage} 
-                  alt={contactInfo.name}
-                  className="relative w-full h-full object-cover z-10"
-                  onError={() => setImageError(true)}
-                />
-              )}
+              <img 
+                src={contactInfo.profileImage} 
+                alt={contactInfo.name}
+                style={{ display: imageError ? 'none' : 'block' }}
+                className="relative w-full h-full object-cover z-10"
+                onError={() => {
+                    console.log("Image failed to load at:", contactInfo.profileImage);
+                    setImageError(true);
+                }}
+              />
             </div>
           </div>
 
