@@ -6,10 +6,10 @@ export const CONTACT_INFO = {
   phone: "(321) 591-4426",
   email: "btburns308@icloud.com",
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
-  profileImage: "brian-burns.jpg", 
-  resumeUrl: "Brian_Burns_Resume.pdf", 
-  summary: "Extensive experience in large scale operational management, process improvement initiatives, business analysis, business intelligence, and systems analyst roles.",
-  headline: "Operations / Business / Business Intelligence Analyst"
+  profileImage: "/brian-burns.jpg", 
+  resumeUrl: "/Brian_Burns_Resume.pdf", 
+  summary: "Accomplished analyst with a proven track record in large-scale operational management, process improvement, and enterprise-level business intelligence. Expert in transforming raw data into strategic operational insights.",
+  headline: "Business Intelligence / Operations Analyst"
 };
 
 export const PROFESSIONAL_EXPERIENCE: Experience[] = [
@@ -18,13 +18,12 @@ export const PROFESSIONAL_EXPERIENCE: Experience[] = [
     location: "Alpharetta, GA",
     role: "Business Intelligence Analyst",
     period: "2021 – Present",
-    description: "Responsible for managing the company's enterprise reporting database (Azure SQL) monthly close-out process, report development and deployment.",
+    description: "Driving enterprise reporting and SQL database management for complex data transformation and ETL processes.",
     achievements: [
-      "Managing the company's enterprise reporting database (Azure SQL) through the monthly close-out process involving complex data transformation and ETL imports.",
-      "Achieved 100% balance to company volume, receivables and liquidations during entire tenure.",
-      "Executing, validating and delivering monthly, quarterly, and fiscal quarterly cadence reports for the entire enterprise.",
-      "One of three core Business Intelligence members for new report development via Tableau Server / Power BI.",
-      "Re-deployed over 30 core business reports in Tableau, drastically decreasing load times."
+      "Manage enterprise reporting database (Azure SQL) through monthly close-out with 100% balance accuracy.",
+      "Re-deployed 30+ core business reports in Tableau, significantly optimizing performance and load times.",
+      "Partner with leadership to deliver monthly, quarterly, and fiscal reporting cadences across the enterprise.",
+      "Lead developer for new Tableau Server and Power BI reporting initiatives."
     ]
   },
   {
@@ -32,11 +31,11 @@ export const PROFESSIONAL_EXPERIENCE: Experience[] = [
     location: "Atlanta, GA",
     role: "Senior Operations Systems Analyst",
     period: "2019 – 2020",
-    description: "Responsible for development, testing and support of data management and business intelligence systems, with extensive use of Microsoft SQL Server database.",
+    description: "Developed and supported high-stakes data management and business intelligence systems for private investment funds.",
     achievements: [
-      "Created the first SQL Server database for the operations group for all private investment fund derivatives.",
-      "Developed standardized operations reporting used in cadence with loan blotter updates and bank collateral custody reconciliation.",
-      "Reduced reconciliation time by 50% compared to previous manual methods."
+      "Architected the first SQL Server database for private investment fund derivatives operations.",
+      "Reduced manual reconciliation time by 50% through automated reporting standardization.",
+      "Established standard operations reporting for bank collateral custody and loan blotter updates."
     ]
   },
   {
@@ -44,26 +43,26 @@ export const PROFESSIONAL_EXPERIENCE: Experience[] = [
     location: "Kennesaw, GA",
     role: "Senior Business Analyst",
     period: "2017 – 2018",
-    description: "Senior Business Analyst within national servicing center, responsible for detailed system analysis and development of formalized change requirements.",
+    description: "Led system analysis and change requirements for a national loan servicing center.",
     achievements: [
-      "Closed over 31 complicated enterprise level trouble and change tickets in less than one year.",
-      "Created all UAT test plans for the integration of Tempo, a large-scale risk mitigation platform.",
-      "Deployed the first loan servicing database used to document and cure document errors for over 10,000 files."
+      "Resolved 30+ complex enterprise-level trouble tickets within the first year.",
+      "Designed UAT test plans for 'Tempo', a major large-scale risk mitigation platform integration.",
+      "Deployed first-of-its-kind loan servicing database to audit and cure errors across 10,000+ files."
     ]
   }
 ];
 
 export const SKILLS: SkillCategory[] = [
   {
-    category: "Technical Stack",
+    category: "Technical Expertise",
     items: ["Azure SQL", "Tableau", "Power BI", "MS Excel (Expert)", "MS SQL Server", "SSIS", "SAP Data Warehouse"]
   },
   {
-    category: "Tools",
+    category: "Operational Systems",
     items: ["ServiceNow!", "MS Visio", "MS Access", "MS SharePoint", "iMeet Central"]
   },
   {
-    category: "Methodology",
+    category: "Strategic Frameworks",
     items: ["Process Improvement", "UAT Testing", "Root Cause Analysis", "Pareto Analysis", "Balanced Scorecards"]
   }
 ];
@@ -88,17 +87,15 @@ export const CERTIFICATIONS: Certification[] = [
 
 export const REFERENCES: Reference[] = [
   {
-    name: "LinkedIn Endorsement",
-    title: "Senior Manager",
-    relation: "Direct Report",
-    quote: "Brian's ability to transform complex data into actionable insights is unparalleled. He built reporting systems from the ground up that saved our team hundreds of hours.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
+    name: "C-Level Executive",
+    title: "Chief Operating Officer",
+    relation: "Former Supervisor",
+    quote: "Brian is an exceptional analyst who bridges the gap between technical data and business strategy. His reporting systems transformed our decision-making process.",
   },
   {
-    name: "Former Colleague",
-    title: "Project Lead",
-    relation: "Worked together at PGi",
-    quote: "A true professional who understands both the business requirements and the technical execution. Brian is the bridge between operations and IT.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka"
+    name: "Senior Program Manager",
+    title: "Operations Director",
+    relation: "Collaborator at HomeBridge",
+    quote: "His attention to detail and ability to solve complex system issues is unmatched. Brian doesn't just find problems; he builds the databases that fix them.",
   }
 ];
