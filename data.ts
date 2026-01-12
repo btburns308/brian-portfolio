@@ -1,19 +1,14 @@
 import { Experience, SkillCategory, Reference, Education, Certification } from './types';
 
-// The '?url' tells Vite to treat these as simple file links
-// @ts-ignore
-import profileImg from './brian-burns.jpg?url';
-// @ts-ignore
-import resumeFile from './Brian_Burns_Resume.pdf?url';
-
 export const CONTACT_INFO = {
   name: "Brian Burns",
   location: "Canton, GA 30115",
   phone: "(321) 591-4426",
   email: "btburns308@icloud.com",
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
-  profileImage: profileImg, 
-  resumeUrl: resumeFile, 
+  // Using plain strings. Ensure these files are in the same folder as your code.
+  profileImage: "brian-burns.jpg", 
+  resumeUrl: "Brian_Burns_Resume.pdf", 
   summary: "Extensive experience in large scale operational management, process improvement initiatives, business analysis, business intelligence, and systems analyst roles.",
   headline: "Operations / Business / Business Intelligence Analyst"
 };
