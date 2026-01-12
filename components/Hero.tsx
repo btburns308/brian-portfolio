@@ -6,7 +6,20 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
+  const [imgSrc, setImgSrc] = useState(contactInfo.profileImage);
+  const [hasTriedFallback, setHasTriedFallback] = useState(false);
   const [imageError, setImageError] = useState(false);
+
+  const handleImageError = () => {
+    if (!hasTriedFallback) {
+      // If the official path fails, try looking for the filename directly at the root
+      setImgSrc("/brian-burns.jpg");
+      setHasTriedFallback(true);
+    } else {
+      // If both fail, show the monogram fallback
+      setImageError(true);
+    }
+  };
 
   return (
     <section id={id} className="relative pt-32 pb-24 overflow-hidden bg-white">
@@ -84,19 +97,19 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
           <div className="lg:col-span-5 relative group">
             <div className="relative w-full aspect-[4/5] bg-slate-900 rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
               
-              {/* Layer 1: The Monogram (Always there) */}
+              {/* Layer 1: The Monogram (Always there as fallback) */}
               <div className="absolute inset-0 flex items-center justify-center bg-slate-800 z-0">
                 <span className="text-[12rem] font-black text-white/5 select-none tracking-tighter uppercase">
                   {contactInfo.name.split(' ').map((n: string) => n[0]).join('')}
                 </span>
               </div>
               
-              {/* Layer 2: The Actual Photo (Hidden if it fails to load) */}
+              {/* Layer 2: The Actual Photo */}
               {!imageError && (
                 <img 
-                  src={contactInfo.profileImage} 
+                  src={imgSrc} 
                   alt={contactInfo.name}
-                  onError={() => setImageError(true)}
+                  onError={handleImageError}
                   className="relative w-full h-full object-cover z-10 transition-opacity duration-500"
                 />
               )}
