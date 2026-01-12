@@ -7,29 +7,32 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ activeSection, contactInfo }) => {
   const navItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'Skills', id: 'skills' },
+    { label: 'Introduction', id: 'home' },
+    { label: 'Competencies', id: 'skills' },
     { label: 'Experience', id: 'experience' },
-    { label: 'Certs', id: 'certifications' },
+    { label: 'Accreditation', id: 'certifications' },
     { label: 'References', id: 'references' },
-    { label: 'Education', id: 'education' },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100">
+    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-slate-50">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <a href="#home" className="flex flex-col">
-          <span className="text-xl font-bold text-gray-900 tracking-tight">{contactInfo.name}</span>
-          <span className="text-xs font-medium text-blue-600 uppercase tracking-widest">Portfolio</span>
+        <a href="#home" className="flex items-center space-x-3">
+          <div className="w-8 h-8 bg-slate-900 text-white flex items-center justify-center font-bold text-xs uppercase tracking-tighter">
+            BB
+          </div>
+          <span className="text-sm font-bold text-slate-900 uppercase tracking-[0.2em] hidden sm:block">
+            {contactInfo.name}
+          </span>
         </a>
 
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden lg:flex items-center space-x-10">
           {navItems.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
-              className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                activeSection === item.id ? 'text-blue-600' : 'text-gray-600'
+              className={`text-[10px] font-bold uppercase tracking-[0.2em] transition-all hover:text-slate-900 ${
+                activeSection === item.id ? 'text-slate-900' : 'text-slate-400'
               }`}
             >
               {item.label}
@@ -37,16 +40,15 @@ const Header: React.FC<HeaderProps> = ({ activeSection, contactInfo }) => {
           ))}
           <a 
             href={`mailto:${contactInfo.email}`}
-            className="bg-gray-900 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-800 transition-all shadow-sm"
+            className="text-[10px] font-bold uppercase tracking-[0.2em] text-white bg-slate-900 px-6 py-3 hover:bg-slate-700 transition-all"
           >
-            Contact
+            Connect
           </a>
         </nav>
 
-        <div className="md:hidden">
-            {/* Mobile simplified contact link */}
-            <a href={`mailto:${contactInfo.email}`} className="text-blue-600 font-semibold text-sm">
-                Get In Touch
+        <div className="lg:hidden">
+            <a href={`mailto:${contactInfo.email}`} className="text-[10px] font-bold uppercase tracking-widest underline underline-offset-4">
+                Inquiry
             </a>
         </div>
       </div>
