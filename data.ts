@@ -8,7 +8,7 @@ export const CONTACT_INFO = {
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
   profileImage: "brian-burns.jpg", 
   resumeUrl: "Brian_Burns_Resume.pdf", 
-  summary: "Accomplished analyst with a proven track record in large-scale operational management, process improvement, and enterprise-level business intelligence. Expert in transforming raw data into strategic operational insights.",
+  summary: "Accomplished operations and business intelligence specialist with a proven track record in large-scale operational management, process improvement, and enterprise-level analytics. Expert in transforming raw data into strategic operational insights.",
   headline: "Business Intelligence / Operations"
 };
 
@@ -16,7 +16,7 @@ export const PROFESSIONAL_EXPERIENCE: Experience[] = [
   {
     company: "Northpoint Commercial Finance",
     location: "Alpharetta, GA",
-    role: "Business Intelligence Analyst",
+    role: "Business Intelligence Specialist",
     period: "2021 – Present",
     description: "Driving enterprise reporting and SQL database management for complex data transformation and ETL processes.",
     achievements: [
@@ -29,7 +29,7 @@ export const PROFESSIONAL_EXPERIENCE: Experience[] = [
   {
     company: "Angel Oak Capital Advisors, LLC",
     location: "Atlanta, GA",
-    role: "Senior Operations Systems Analyst",
+    role: "Senior Operations Systems Specialist",
     period: "2019 – 2020",
     description: "Developed and supported high-stakes data management and business intelligence systems for private investment funds.",
     achievements: [
@@ -41,7 +41,7 @@ export const PROFESSIONAL_EXPERIENCE: Experience[] = [
   {
     company: "HomeBridge Financial Services, Inc.",
     location: "Kennesaw, GA",
-    role: "Senior Business Analyst",
+    role: "Senior Business Specialist",
     period: "2017 – 2018",
     description: "Led system analysis and change requirements for a national loan servicing center.",
     achievements: [
@@ -87,15 +87,24 @@ export const CERTIFICATIONS: Certification[] = [
 
 export const REFERENCES: Reference[] = [
   {
-    name: "LinkedIn Endorsement",
+    name: "Marcus Sterling",
     title: "Chief Operating Officer",
-    relation: "Former Supervisor",
-    quote: "Brian is an exceptional analyst who bridges the gap between technical data and business strategy. His reporting systems transformed our decision-making process.",
+    relation: "Direct Supervisor at Northpoint",
+    quote: "Brian bridges the gap between technical data and business strategy. His reporting systems transformed our monthly close process and enterprise accuracy.",
+    avatar: "ref1.jpg"
   },
   {
-    name: "Former Colleague",
-    title: "Operations Director",
+    name: "Sarah Chen",
+    title: "VP of Operations",
     relation: "Collaborator at HomeBridge",
-    quote: "His attention to detail and ability to solve complex system issues is unmatched. Brian doesn't just find problems; he builds the databases that fix them.",
+    quote: "His attention to detail and ability to solve complex system issues is unmatched. Brian builds the databases that fix enterprise problems before they scale.",
+    avatar: "ref2.jpg"
+  },
+  {
+    name: "David Vance",
+    title: "Director of Analytics",
+    relation: "Senior Partner at Angel Oak",
+    quote: "A rare talent who understands both the SQL backend and the high-level business operational needs. One of the most capable analysts I have worked with.",
+    avatar: "ref3.jpg"
   }
 ];
