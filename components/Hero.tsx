@@ -8,13 +8,13 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
   return (
     <section id={id} className="relative pt-32 pb-20 overflow-hidden bg-white">
-      {/* Design Elements */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-50/30 to-transparent -skew-x-12 transform origin-top no-print pointer-events-none z-0"></div>
+      {/* Design Background */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-50 -skew-x-12 transform origin-top no-print pointer-events-none z-0"></div>
       
       <div className="relative max-w-7xl mx-auto px-6 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Column: Content */}
+          {/* Left Column: Text Content */}
           <div className="lg:col-span-7">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold tracking-widest uppercase mb-8 no-print border border-blue-100">
               <span className="relative flex h-2 w-2">
@@ -24,25 +24,25 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
               <span>Available for new opportunities</span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 mb-8 leading-[0.95] tracking-tight text-balance">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 mb-8 leading-[0.95] tracking-tight">
               {contactInfo.name}. <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-600 to-slate-400">
-                Operations & <br className="sm:hidden" /> Business Intelligence.
+              <span className="text-slate-500">
+                Operations & Business Intelligence.
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-slate-600 mb-12 leading-relaxed max-w-2xl font-light text-balance">
-              An expert at bridging the gap between <span className="text-slate-900 font-medium italic underline decoration-blue-200 underline-offset-4">complex data</span> and <span className="text-slate-900 font-medium italic underline decoration-blue-200 underline-offset-4">operational excellence.</span>
+            <p className="text-xl md:text-2xl text-slate-600 mb-12 leading-relaxed max-w-2xl font-light">
+              An expert at bridging the gap between <span className="text-slate-900 font-medium">complex data</span> and <span className="text-slate-900 font-medium">operational excellence.</span>
             </p>
 
             <div className="flex flex-wrap gap-4 mb-16 no-print">
               <a 
                 href={contactInfo.resumeUrl}
                 download
-                className="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-slate-800 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center space-x-3 group cursor-pointer"
+                className="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-slate-800 transition-all shadow-xl flex items-center space-x-3 cursor-pointer"
               >
                 <span>Download Resume</span>
-                <svg className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
               </a>
@@ -50,90 +50,43 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
                 href={contactInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white text-slate-900 border-2 border-slate-100 px-8 py-4 rounded-2xl font-bold hover:bg-slate-50 transition-all flex items-center space-x-3 hover:border-blue-200 cursor-pointer"
+                className="bg-white text-slate-900 border-2 border-slate-100 px-8 py-4 rounded-2xl font-bold hover:bg-slate-50 transition-all flex items-center space-x-3 cursor-pointer"
               >
-                <span>LinkedIn</span>
-                <svg className="w-5 h-5 text-[#0077b5]" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
+                <span>LinkedIn Profile</span>
               </a>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-10 border-t border-slate-100 no-print">
-              <div className="group">
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 group-hover:text-blue-500 transition-colors">Location</p>
+              <div>
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Location</p>
                 <p className="text-slate-900 font-medium">{contactInfo.location}</p>
               </div>
-              <div className="group">
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 group-hover:text-blue-500 transition-colors">Contact</p>
+              <div>
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Phone</p>
                 <p className="text-slate-900 font-medium">{contactInfo.phone}</p>
               </div>
-              <div className="group">
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 group-hover:text-blue-500 transition-colors">Email</p>
-                <p className="text-slate-900 font-medium hover:text-blue-600 transition-colors underline decoration-slate-200 decoration-1 underline-offset-4">
+              <div>
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Email</p>
+                <p className="text-slate-900 font-medium">
                   <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Image */}
-          <div className="lg:col-span-5 relative no-print">
-            <div className="relative group">
-              {/* Background Glow */}
-              <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600 to-blue-400 rounded-[3.5rem] opacity-10 group-hover:opacity-20 transition-opacity blur-2xl"></div>
-              
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[3rem] border-8 border-white shadow-2xl bg-slate-200 flex items-center justify-center">
-                
-                {/* 1. Static Placeholder (Always behind the image) */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 to-slate-800">
-                   <span className="text-[12rem] font-black text-white/5 uppercase select-none tracking-tighter absolute">BB</span>
-                   <div className="z-10 text-center px-8">
-                     <div className="w-20 h-1 bg-blue-500 mx-auto mb-6 rounded-full opacity-50"></div>
-                     <p className="text-white font-bold text-3xl tracking-tight mb-2">{contactInfo.name}</p>
-                     <p className="text-blue-400 text-[10px] font-black uppercase tracking-[0.2em]">Operations & Business Intelligence</p>
-                   </div>
-                </div>
-
-                {/* 2. Actual Image (Now renders directly without state-dependent opacity) */}
-                <img 
-                  src={contactInfo.profileImage} 
-                  alt={contactInfo.name}
-                  className="absolute inset-0 w-full h-full object-cover z-20"
-                  onError={(e) => {
-                    // If the image fails to load, hide the broken icon so the placeholder shows instead
-                    e.currentTarget.style.display = 'none';
-                  }}
-                />
-              </div>
-              
-              {/* Experience Badge */}
-              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl border border-slate-50 flex items-center space-x-4 animate-bounce-subtle z-30">
-                <div className="bg-blue-100 p-2 rounded-xl text-blue-600">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Experience</p>
-                  <p className="text-xl font-black text-slate-900">10+ Years</p>
-                </div>
-              </div>
+          {/* Right Column: Still Picture */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            <div className="w-full max-w-md aspect-[4/5] overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl bg-slate-100">
+              <img 
+                src={contactInfo.profileImage} 
+                alt={contactInfo.name}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
         </div>
       </div>
-
-      <style>{`
-        @keyframes bounce-subtle {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-        .animate-bounce-subtle {
-          animation: bounce-subtle 4s ease-in-out infinite;
-        }
-      `}</style>
     </section>
   );
 };
