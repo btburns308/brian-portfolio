@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 interface HeroProps {
   contactInfo: any;
@@ -6,32 +6,12 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
-  const [imageSrc, setImageSrc] = useState(contactInfo.profileImage);
   const [imageError, setImageError] = useState(false);
-  const [retryCount, setRetryCount] = useState(0);
-
-  // When the component loads or contactInfo changes, try the provided path
-  useEffect(() => {
-    setImageSrc(contactInfo.profileImage);
-    setImageError(false);
-    setRetryCount(0);
-  }, [contactInfo.profileImage]);
-
-  const handleImageError = () => {
-    // If the first path fails, try adding/removing a dot or slash
-    if (retryCount === 0) {
-      // Try forcing relative
-      setImageSrc(`./${contactInfo.profileImage}`);
-      setRetryCount(1);
-    } else if (retryCount === 1) {
-      // Try forcing absolute
-      setImageSrc(`/${contactInfo.profileImage}`);
-      setRetryCount(2);
-    } else {
-      // Give up and show monogram
-      setImageError(true);
-    }
-  };
+  
+  // Directly use the filenames from data.ts. 
+  // Browsers will look for these files in the same folder as your index.html.
+  const profileImageUrl = contactInfo.profileImage;
+  const resumeUrl = contactInfo.resumeUrl;
 
   return (
     <section id={id} className="relative pt-32 pb-24 overflow-hidden bg-white">
@@ -65,7 +45,7 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
 
             <div className="flex flex-wrap gap-4 no-print">
               <a 
-                href={contactInfo.resumeUrl}
+                href={resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-10 py-5 bg-slate-900 text-white font-bold rounded-2xl hover:bg-blue-600 transition-all shadow-xl hover:-translate-y-1 flex items-center gap-3"
@@ -109,7 +89,7 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
           <div className="lg:col-span-5 relative group">
             <div className="relative w-full aspect-[4/5] bg-slate-900 rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
               
-              {/* Fallback View (Monogram) */}
+              {/* Fallback View (Monogram) - Always present behind */}
               <div className="absolute inset-0 flex items-center justify-center bg-slate-800">
                 <span className="text-[12rem] font-black text-white/5 select-none tracking-tighter uppercase">
                   {contactInfo.name.split(' ').map((n: string) => n[0]).join('')}
@@ -118,9 +98,9 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
               
               {!imageError && (
                 <img 
-                  src={imageSrc} 
+                  src={profileImageUrl} 
                   alt={contactInfo.name}
-                  onError={handleImageError}
+                  onError={() => setImageError(true)}
                   className="relative w-full h-full object-cover z-10 transition-opacity duration-500"
                 />
               )}
