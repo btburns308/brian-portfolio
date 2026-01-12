@@ -7,11 +7,6 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
   const [imageError, setImageError] = useState(false);
-  
-  // Directly use the filenames from data.ts. 
-  // Browsers will look for these files in the same folder as your index.html.
-  const profileImageUrl = contactInfo.profileImage;
-  const resumeUrl = contactInfo.resumeUrl;
 
   return (
     <section id={id} className="relative pt-32 pb-24 overflow-hidden bg-white">
@@ -45,7 +40,7 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
 
             <div className="flex flex-wrap gap-4 no-print">
               <a 
-                href={resumeUrl}
+                href={contactInfo.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-10 py-5 bg-slate-900 text-white font-bold rounded-2xl hover:bg-blue-600 transition-all shadow-xl hover:-translate-y-1 flex items-center gap-3"
@@ -85,20 +80,21 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
             </div>
           </div>
 
-          {/* Right Column: Profile Image / Fallback */}
+          {/* Right Column: Profile Image Stack */}
           <div className="lg:col-span-5 relative group">
             <div className="relative w-full aspect-[4/5] bg-slate-900 rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
               
-              {/* Fallback View (Monogram) - Always present behind */}
-              <div className="absolute inset-0 flex items-center justify-center bg-slate-800">
+              {/* Layer 1: The Monogram (Always there) */}
+              <div className="absolute inset-0 flex items-center justify-center bg-slate-800 z-0">
                 <span className="text-[12rem] font-black text-white/5 select-none tracking-tighter uppercase">
                   {contactInfo.name.split(' ').map((n: string) => n[0]).join('')}
                 </span>
               </div>
               
+              {/* Layer 2: The Actual Photo (Hidden if it fails to load) */}
               {!imageError && (
                 <img 
-                  src={profileImageUrl} 
+                  src={contactInfo.profileImage} 
                   alt={contactInfo.name}
                   onError={() => setImageError(true)}
                   className="relative w-full h-full object-cover z-10 transition-opacity duration-500"
