@@ -6,10 +6,10 @@ export const CONTACT_INFO = {
   phone: "(321) 591-4426",
   email: "btburns308@icloud.com",
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
-  // We use the direct filenames because your server is mapping the public folder to the root
-  profileImage: "brian-burns.jpg", 
+  // Adding the leading slash to ensure root-relative pathing
+  profileImage: "/brian-burns.jpg", 
   fallbackImage: "", 
-  resumeUrl: "Brian_Burns_Resume.pdf", 
+  resumeUrl: "/Brian_Burns_Resume.pdf", 
   summary: "Extensive experience in large scale operational management, process improvement initiatives, business analysis, business intelligence, and systems analyst roles.",
   headline: "Operations / Business / Business Intelligence Analyst"
 };
