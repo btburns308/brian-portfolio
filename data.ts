@@ -6,10 +6,10 @@ export const CONTACT_INFO = {
   phone: "(321) 591-4426",
   email: "btburns308@icloud.com",
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
-  profileImage: "/brian-burns.jpg", 
-  resumeUrl: "/Brian_Burns_Resume.pdf", 
+  profileImage: "brian-burns.jpg", 
+  resumeUrl: "Brian_Burns_Resume.pdf", 
   summary: "Accomplished analyst with a proven track record in large-scale operational management, process improvement, and enterprise-level business intelligence. Expert in transforming raw data into strategic operational insights.",
-  headline: "Business Intelligence / Operations Analyst"
+  headline: "Business Intelligence / Operations"
 };
 
 export const PROFESSIONAL_EXPERIENCE: Experience[] = [
@@ -87,13 +87,13 @@ export const CERTIFICATIONS: Certification[] = [
 
 export const REFERENCES: Reference[] = [
   {
-    name: "C-Level Executive",
+    name: "LinkedIn Endorsement",
     title: "Chief Operating Officer",
     relation: "Former Supervisor",
     quote: "Brian is an exceptional analyst who bridges the gap between technical data and business strategy. His reporting systems transformed our decision-making process.",
   },
   {
-    name: "Senior Program Manager",
+    name: "Former Colleague",
     title: "Operations Director",
     relation: "Collaborator at HomeBridge",
     quote: "His attention to detail and ability to solve complex system issues is unmatched. Brian doesn't just find problems; he builds the databases that fix them.",
