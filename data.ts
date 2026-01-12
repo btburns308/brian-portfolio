@@ -6,10 +6,10 @@ export const CONTACT_INFO = {
   phone: "(321) 591-4426",
   email: "btburns308@icloud.com",
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
-  // These files should now be moved to the root folder (alongside index.html)
-  profileImage: "brian-burns.jpg", 
+  // Absolute paths from root. Ensure these match your filenames exactly.
+  profileImage: "/brian-burns.jpg", 
   fallbackImage: "", 
-  resumeUrl: "Brian_Burns_Resume.pdf", 
+  resumeUrl: "/Brian_Burns_Resume.pdf", 
   summary: "Extensive experience in large scale operational management, process improvement initiatives, business analysis, business intelligence, and systems analyst roles.",
   headline: "Operations / Business / Business Intelligence Analyst"
 };
