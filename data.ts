@@ -1,8 +1,8 @@
 import { Experience, SkillCategory, Reference, Education, Certification } from './types';
 
-// @ts-ignore - Vite will handle these imports and provide the correct URL string
+// @ts-ignore - Telling the system to trust these files exist in the folder
 import profileImg from './brian-burns.jpg';
-// @ts-ignore - Vite will handle these imports and provide the correct URL string
+// @ts-ignore
 import resumeFile from './Brian_Burns_Resume.pdf';
 
 export const CONTACT_INFO = {
