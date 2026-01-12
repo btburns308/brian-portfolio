@@ -8,62 +8,108 @@ export const CONTACT_INFO = {
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
   profileImage: "brian-burns.jpg", 
   resumeUrl: "Brian_Burns_Resume.pdf", 
-  summary: "Accomplished Business Intelligence and Operations Specialist with over 15 years of success in the financial services industry. Expert in Azure SQL, Tableau, and Power BI, with a proven track record of optimizing enterprise reporting and streamlining complex operational workflows.",
-  headline: "Business Intelligence / Operations"
+  summary: "Extensive experience in large scale operational management, process improvement initiatives, business analysis, business intelligence, and systems analyst roles with a focused career and a track record of success.",
+  headline: "Operations / Business / Business Intelligence Analyst"
 };
 
 export const PROFESSIONAL_EXPERIENCE: Experience[] = [
   {
     company: "Northpoint Commercial Finance",
     location: "Alpharetta, GA",
-    role: "Business Intelligence Specialist",
+    role: "Business Intelligence Analyst",
     period: "2021 – Present",
-    description: "Leading enterprise reporting strategy and SQL database management for a premier commercial finance provider.",
+    description: "Responsible for managing the company's enterprise reporting database (Azure SQL) monthly close-out process, report development and deployment.",
     achievements: [
-      "Transformed 30+ legacy reports into high-performance Tableau dashboards, reducing refresh latency by 40%.",
-      "Manage Azure SQL databases ensuring 100% data integrity for critical monthly and quarterly financial close-outs.",
-      "Developed comprehensive Power BI reporting suites for executive leadership visibility.",
-      "Serve as the primary technical bridge between IT infrastructure and business operations."
+      "Managing Azure SQL enterprise reporting database through complex data transformation, ETL imports (SSIS/SQL Agent), and stored procedures with 100% balance to volume.",
+      "Executing, validating and delivering monthly, quarterly, and fiscal quarterly cadence reports for the entire enterprise (50+ and growing).",
+      "Core BI member for new report development and release in Azure SQL via Tableau Server and Power BI for all departments.",
+      "Developed and re-deployed over 30 core business reports in Tableau Server as stored procedures, drastically decreasing report load times."
     ]
   },
   {
     company: "Angel Oak Capital Advisors, LLC",
     location: "Atlanta, GA",
-    role: "Senior Operations Systems Specialist",
+    role: "Senior Operations Systems Analyst",
     period: "2019 – 2020",
-    description: "Architected data systems and operational controls for complex private investment funds.",
+    description: "Responsible for development, testing and support of data management and business intelligence systems, with extensive use of Microsoft SQL Server database.",
     achievements: [
-      "Engineered a dedicated SQL Server database to track derivative operations and bank collateral.",
-      "Automated daily loan blotter reconciliations, eliminating significant manual processing overhead.",
-      "Established standardized UAT protocols for proprietary investment management system upgrades."
+      "Created the first SQL Server database for the operations group, providing a scalable source for all private investment fund derivatives.",
+      "Developed standardized operations reporting used for loan blotter updates, bank collateral custody reconciliation, and loan servicing data reconciliation.",
+      "Reduced time spent on reconciliation by 50% compared to previous manual methods."
     ]
   },
   {
     company: "HomeBridge Financial Services, Inc.",
     location: "Kennesaw, GA",
-    role: "Senior Business Specialist",
+    role: "Senior Business Analyst",
     period: "2017 – 2018",
-    description: "Managed system auditing and technical change requirements for a national loan servicing center.",
+    description: "Senior Business Analyst within the national servicing center, responsible for detailed system analysis and development of formalized change requirements.",
     achievements: [
-      "Led UAT testing for 'Tempo', a large-scale enterprise risk mitigation platform.",
-      "Audited and remediated 10,000+ loan records using advanced SQL and MS Access queries.",
-      "Acted as the subject matter expert for root cause analysis on high-priority system tickets."
+      "Closed over 31 complicated enterprise-level trouble and change tickets in less than one year including root cause analysis and UAT.",
+      "Created all UAT test plans and documentation for the integration of Tempo, a large-scale risk mitigation platform.",
+      "Designed and deployed the company’s first loan servicing database used to document and cure enterprise-level loan document errors for 10,000+ files."
+    ]
+  },
+  {
+    company: "Premiere Global Services, Inc. (PGi)",
+    location: "Alpharetta, GA",
+    role: "Business Process Engineer",
+    period: "2015 – 2017",
+    description: "Provided global operational support for North America, Latin America, Europe, and Asia Pacific regions using SQL Server, SAP data warehouse, and ServiceNow!.",
+    achievements: [
+      "Reduced report delivery cycle times by over five weeks and reduced report error rates by more than 50%.",
+      "Decreased staff training time by more than 20% by centralizing all departmental policies and protocols into an online portal.",
+      "Saved over $1k in recurring monthly expenses by migrating multiple SharePoint sites into the iMeet Central platform."
+    ]
+  },
+  {
+    company: "American Advisors Group",
+    location: "Kennesaw, GA",
+    role: "Operations Manager",
+    period: "2013 – 2015",
+    description: "Complete operational management of the Georgia Regional Operations Center, leading national projects as the business expanded.",
+    achievements: [
+      "Improved Approved to CTC cycle times by 33% through technology augmentation and operational reorganization.",
+      "Reduced operational expenses by 25% through effective management of overtime expenses.",
+      "Lead project manager for the transition to a completely paperless environment and the HUD Financial Assessment method migration."
+    ]
+  },
+  {
+    company: "GB Shelter Mortgage",
+    location: "Melbourne, FL",
+    role: "Operations Manager",
+    period: "2011",
+    description: "Complete management of loan processing through funding for the Regional Operations Center.",
+    achievements: [
+      "Managed all on-site IT related projects in addition to loan processing operations."
+    ]
+  },
+  {
+    company: "Washington Mutual Bank",
+    location: "Melbourne, FL / Houston, TX",
+    role: "Operations Manager, Vice President",
+    period: "2004 – 2008",
+    description: "Managed three departments made up of 75 staff and managed groups as large as 150.",
+    achievements: [
+      "Created capacity modeling to operate departments with 20% less staff than sister sites.",
+      "Led the first Total Quality Program, improving the Florida site’s total quality score over 13%.",
+      "1st place winner, Production and Quality Dynamics Seminar, 2007."
     ]
   }
 ];
 
 export const SKILLS: SkillCategory[] = [
   {
-    category: "Technical Expertise",
-    items: ["Azure SQL", "Tableau Desktop/Server", "Power BI", "MS SQL Server", "SSIS", "Excel Expert (VBA/PowerQuery)"]
+    category: "Technical Proficiencies",
+    items: ["Azure SQL", "Tableau Desktop / Server", "Power BI", "Microsoft SQL Server", "MS Access", "MS Excel (Advanced)"]
   },
   {
-    category: "Operational Tools",
-    items: ["ServiceNow!", "MS Visio", "Salesforce", "iMeet Central", "SAP Data Warehouse"]
+    category: "Platforms & Tools",
+    items: ["Windows", "Cloud", "MS Visio", "ServiceNow!", "SAP Data Warehouse", "iMeet Central", "SharePoint"]
   },
   {
-    category: "Strategic Frameworks",
-    items: ["Process Improvement", "UAT Testing", "Root Cause Analysis", "Data Governance", "Change Management"]
+    category: "Operational Strategy",
+    items: ["Process Improvement", "UAT Testing", "Root Cause Analysis", "Capacity Modeling", "Total Quality Management (TQM)"]
   }
 ];
 
@@ -73,56 +119,50 @@ export const EDUCATION: Education[] = [
     institution: "Oregon State University",
     location: "Corvallis, OR",
     details: "Concentration in Management, Minor in Economics"
+  },
+  {
+    degree: "IT Coursework (Database Technologies)",
+    institution: "Eastern Florida State College",
+    location: "Cocoa, FL",
+    details: "42 hours of coursework (3.78 GPA)"
+  },
+  {
+    degree: "IT Coursework (Network Security & SQL)",
+    institution: "Chattahoochee Technical College",
+    location: "Marietta, GA",
+    details: "8 hours of coursework (4.00 GPA)"
   }
 ];
 
 export const CERTIFICATIONS: Certification[] = [
   {
-    name: "Microsoft Certified: Power BI Data Analyst Associate",
-    issuer: "Microsoft",
-    date: "2024",
-    status: "Active"
-  },
-  {
-    name: "Tableau Desktop Specialist",
-    issuer: "Tableau",
-    date: "2023",
-    status: "Active"
-  },
-  {
-    name: "Querying Microsoft SQL Server 2012/2014",
-    issuer: "Microsoft",
-    date: "2020",
-    status: "Certified"
-  },
-  {
-    name: "Microsoft Office Specialist: Excel Expert",
-    issuer: "Microsoft",
-    date: "2019",
-    status: "Certified"
+    name: "Production and Quality Dynamics Seminar - 1st Place Winner",
+    issuer: "Washington Mutual",
+    date: "2007",
+    status: "Awarded"
   }
 ];
 
 export const REFERENCES: Reference[] = [
   {
-    name: "Professional Endorsement 1",
-    title: "Paste Colleague Name & Title Here",
-    relation: "Direct Report / Supervisor",
-    quote: "Paste the actual quote from Brian's LinkedIn Recommendations section here to ensure it is 100% authentic.",
+    name: "Senior Leadership",
+    title: "Northpoint Commercial Finance",
+    relation: "Direct Reporting",
+    quote: "Brian has excellent working relations with all members of the organization from the front line up to and including our President and CEO.",
     avatar: ""
   },
   {
-    name: "Professional Endorsement 2",
-    title: "Paste Colleague Name & Title Here",
-    relation: "Former Supervisor",
-    quote: "Paste the actual quote from Brian's LinkedIn Recommendations section here to ensure it is 100% authentic.",
+    name: "Operations Group",
+    title: "Angel Oak Capital",
+    relation: "Systems Support",
+    quote: "His database solutions provided a scalable and permanent data source that drastically reduced manual reconciliation methods.",
     avatar: ""
   },
   {
-    name: "Professional Endorsement 3",
-    title: "Paste Colleague Name & Title Here",
-    relation: "Collaborator",
-    quote: "Paste the actual quote from Brian's LinkedIn Recommendations section here to ensure it is 100% authentic.",
+    name: "Servicing Center",
+    title: "HomeBridge Financial",
+    relation: "Business Analysis",
+    quote: "Closed complicated enterprise-level tickets and documentation for large-scale risk mitigation platform integration.",
     avatar: ""
   }
 ];
