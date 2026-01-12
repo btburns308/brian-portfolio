@@ -6,11 +6,11 @@ export const CONTACT_INFO = {
   phone: "(321) 591-4426",
   email: "btburns308@icloud.com",
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
-  // Adding the '/' at the start helps the browser find the file in the public folder
-  profileImage: "/brian-burns.jpg", 
+  // We add 'public/' because the computer needs to know exactly which folder to open
+  profileImage: "public/brian-burns.jpg", 
   fallbackImage: "", 
-  // Adding the '/' at the start helps the browser find the resume in the public folder
-  resumeUrl: "/Brian_Burns_Resume.pdf", 
+  // We add 'public/' here too so the download button finds the file
+  resumeUrl: "public/Brian_Burns_Resume.pdf", 
   summary: "Extensive experience in large scale operational management, process improvement initiatives, business analysis, business intelligence, and systems analyst roles.",
   headline: "Operations / Business / Business Intelligence Analyst"
 };
