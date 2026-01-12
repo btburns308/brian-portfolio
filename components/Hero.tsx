@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface HeroProps {
   contactInfo: any;
@@ -6,6 +6,8 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <section id={id} className="relative pt-32 pb-20 overflow-hidden bg-white">
       {/* Design Background */}
@@ -74,21 +76,22 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
             </div>
           </div>
 
-          {/* Right Column: Picture */}
+          {/* Right Column: Picture Area */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md aspect-[4/5] overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl bg-slate-200">
+            <div className="relative w-full max-w-md aspect-[4/5] overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl bg-slate-800 flex items-center justify-center">
               
-              {/* Initials Placeholder (Behind the image) */}
-              <div className="absolute inset-0 flex items-center justify-center bg-slate-800">
-                <span className="text-8xl font-black text-white/20">BB</span>
-              </div>
+              {/* Initials Placeholder (Visible if image fails or is loading) */}
+              <span className="absolute text-8xl font-black text-white/20 select-none">BB</span>
 
               {/* Still Picture */}
-              <img 
-                src={contactInfo.profileImage} 
-                alt={contactInfo.name}
-                className="relative w-full h-full object-cover z-10"
-              />
+              {!imageError && (
+                <img 
+                  src={contactInfo.profileImage} 
+                  alt={contactInfo.name}
+                  className="relative w-full h-full object-cover z-10"
+                  onError={() => setImageError(true)}
+                />
+              )}
             </div>
           </div>
 
