@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface HeroProps {
   contactInfo: any;
@@ -6,6 +6,8 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <section id={id} className="relative pt-32 pb-24 overflow-hidden bg-white">
       {/* Decorative background element */}
@@ -89,13 +91,16 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
                 </span>
               </div>
               
-              {/* Profile Image: Points directly to the filename */}
-              <img 
-                src={contactInfo.profileImage} 
-                alt={contactInfo.name}
-                className="relative w-full h-full object-cover z-10 transition-opacity duration-700"
-                loading="eager"
-              />
+              {/* Profile Image */}
+              {!imageError && (
+                <img 
+                  src={contactInfo.profileImage} 
+                  alt={contactInfo.name}
+                  className="relative w-full h-full object-cover z-10 transition-opacity duration-700"
+                  loading="eager"
+                  onError={() => setImageError(true)}
+                />
+              )}
 
               {/* Performance Badge */}
               <div className="absolute bottom-10 -right-4 bg-white p-6 rounded-3xl shadow-2xl z-20 border border-slate-50 hidden md:block transform transition-all group-hover:-translate-x-4">
