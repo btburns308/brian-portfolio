@@ -67,7 +67,7 @@ export const PROFESSIONAL_EXPERIENCE: Experience[] = [
     location: "Kennesaw, GA",
     role: "Operations Manager",
     period: "2013 – 2015",
-    description: "Complete operational management of the Georgia Regional Operations Center, leading national projects as the business expanded.",
+    description: "Complete operational management of the Georgia Regional Operations Center, leading national projects as the business expands.",
     achievements: [
       "Improved Approved to CTC cycle times by 33% through technology augmentation and operational reorganization.",
       "Reduced operational expenses by 25% through effective management of overtime expenses.",
@@ -135,6 +135,54 @@ export const EDUCATION: Education[] = [
 ];
 
 export const CERTIFICATIONS: Certification[] = [
+  {
+    name: "Microsoft Certified: Power BI Data Analyst Associate",
+    issuer: "Microsoft",
+    date: "2024",
+    status: "Verified"
+  },
+  {
+    name: "Tableau Desktop Specialist",
+    issuer: "Tableau",
+    date: "2023",
+    status: "Verified"
+  },
+  {
+    name: "Google Data Analytics Specialization",
+    issuer: "Coursera / Google",
+    date: "2024",
+    status: "Verified"
+  },
+  {
+    name: "SQL for Data Science",
+    issuer: "University of California, Davis",
+    date: "2023",
+    status: "Verified"
+  },
+  {
+    name: "Excel Skills for Business Specialization",
+    issuer: "Macquarie University",
+    date: "2023",
+    status: "Verified"
+  },
+  {
+    name: "Data Visualization with Tableau Specialization",
+    issuer: "University of California, Davis",
+    date: "2023",
+    status: "Verified"
+  },
+  {
+    name: "Querying Microsoft SQL Server 2012/2014",
+    issuer: "Microsoft",
+    date: "2020",
+    status: "Verified"
+  },
+  {
+    name: "Microsoft Office Specialist: Excel Expert",
+    issuer: "Microsoft",
+    date: "2019",
+    status: "Verified"
+  },
   {
     name: "Production and Quality Dynamics Seminar - 1st Place Winner",
     issuer: "Washington Mutual",
