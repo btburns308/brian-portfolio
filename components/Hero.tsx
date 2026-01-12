@@ -85,7 +85,7 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
               
               <div className="relative aspect-[4/5] overflow-hidden rounded-[3rem] border-8 border-white shadow-2xl bg-slate-200 flex items-center justify-center">
                 
-                {/* 1. Static Placeholder (Behind the image) */}
+                {/* 1. Static Placeholder (Always behind the image) */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 to-slate-800">
                    <span className="text-[12rem] font-black text-white/5 uppercase select-none tracking-tighter absolute">BB</span>
                    <div className="z-10 text-center px-8">
@@ -95,11 +95,15 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
                    </div>
                 </div>
 
-                {/* 2. Actual Image (No longer has opacity-0 by default) */}
+                {/* 2. Actual Image (Now renders directly without state-dependent opacity) */}
                 <img 
                   src={contactInfo.profileImage} 
                   alt={contactInfo.name}
-                  className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 z-20"
+                  className="absolute inset-0 w-full h-full object-cover z-20"
+                  onError={(e) => {
+                    // If the image fails to load, hide the broken icon so the placeholder shows instead
+                    e.currentTarget.style.display = 'none';
+                  }}
                 />
               </div>
               
