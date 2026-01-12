@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface HeroProps {
   contactInfo: any;
@@ -6,7 +6,32 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
+  const [imageSrc, setImageSrc] = useState(contactInfo.profileImage);
   const [imageError, setImageError] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
+
+  // When the component loads or contactInfo changes, try the provided path
+  useEffect(() => {
+    setImageSrc(contactInfo.profileImage);
+    setImageError(false);
+    setRetryCount(0);
+  }, [contactInfo.profileImage]);
+
+  const handleImageError = () => {
+    // If the first path fails, try adding/removing a dot or slash
+    if (retryCount === 0) {
+      // Try forcing relative
+      setImageSrc(`./${contactInfo.profileImage}`);
+      setRetryCount(1);
+    } else if (retryCount === 1) {
+      // Try forcing absolute
+      setImageSrc(`/${contactInfo.profileImage}`);
+      setRetryCount(2);
+    } else {
+      // Give up and show monogram
+      setImageError(true);
+    }
+  };
 
   return (
     <section id={id} className="relative pt-32 pb-24 overflow-hidden bg-white">
@@ -84,19 +109,21 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
           <div className="lg:col-span-5 relative group">
             <div className="relative w-full aspect-[4/5] bg-slate-900 rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
               
-              {/* Fallback View (Behind image or shown if error) */}
-              <div className="absolute inset-0 flex items-center justify-center bg-slate-800 pointer-events-none">
-                <span className="text-[12rem] font-black text-white/5 select-none tracking-tighter">BB</span>
+              {/* Fallback View (Monogram) */}
+              <div className="absolute inset-0 flex items-center justify-center bg-slate-800">
+                <span className="text-[12rem] font-black text-white/5 select-none tracking-tighter uppercase">
+                  {contactInfo.name.split(' ').map((n: string) => n[0]).join('')}
+                </span>
               </div>
               
-              {!imageError ? (
+              {!imageError && (
                 <img 
-                  src={contactInfo.profileImage} 
+                  src={imageSrc} 
                   alt={contactInfo.name}
-                  onError={() => setImageError(true)}
+                  onError={handleImageError}
                   className="relative w-full h-full object-cover z-10 transition-opacity duration-500"
                 />
-              ) : null}
+              )}
 
               {/* Float Performance Badge */}
               <div className="absolute bottom-10 -right-4 bg-white p-6 rounded-3xl shadow-2xl z-20 border border-slate-50 hidden md:block transform transition-all group-hover:-translate-x-4">
