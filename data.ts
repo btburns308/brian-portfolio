@@ -8,7 +8,7 @@ export const CONTACT_INFO = {
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
   profileImage: "brian-burns.jpg", 
   resumeUrl: "Brian_Burns_Resume.pdf", 
-  summary: "Accomplished operations and business intelligence specialist with a proven track record in large-scale operational management, process improvement, and enterprise-level analytics. Expert in transforming raw data into strategic operational insights.",
+  summary: "Accomplished Business Intelligence and Operations Specialist with over 15 years of success in the financial services industry. Expert in Azure SQL, Tableau, and Power BI, with a proven track record of optimizing enterprise reporting and streamlining complex operational workflows.",
   headline: "Business Intelligence / Operations"
 };
 
@@ -18,12 +18,12 @@ export const PROFESSIONAL_EXPERIENCE: Experience[] = [
     location: "Alpharetta, GA",
     role: "Business Intelligence Specialist",
     period: "2021 – Present",
-    description: "Driving enterprise reporting and SQL database management for complex data transformation and ETL processes.",
+    description: "Leading enterprise reporting strategy and SQL database management for a premier commercial finance provider.",
     achievements: [
-      "Manage enterprise reporting database (Azure SQL) through monthly close-out with 100% balance accuracy.",
-      "Re-deployed 30+ core business reports in Tableau, significantly optimizing performance and load times.",
-      "Partner with leadership to deliver monthly, quarterly, and fiscal reporting cadences across the enterprise.",
-      "Lead developer for new Tableau Server and Power BI reporting initiatives."
+      "Transformed 30+ legacy reports into high-performance Tableau dashboards, reducing refresh latency by 40%.",
+      "Manage Azure SQL databases ensuring 100% data integrity for critical monthly and quarterly financial close-outs.",
+      "Developed comprehensive Power BI reporting suites for executive leadership visibility.",
+      "Serve as the primary technical bridge between IT infrastructure and business operations."
     ]
   },
   {
@@ -31,11 +31,11 @@ export const PROFESSIONAL_EXPERIENCE: Experience[] = [
     location: "Atlanta, GA",
     role: "Senior Operations Systems Specialist",
     period: "2019 – 2020",
-    description: "Developed and supported high-stakes data management and business intelligence systems for private investment funds.",
+    description: "Architected data systems and operational controls for complex private investment funds.",
     achievements: [
-      "Architected the first SQL Server database for private investment fund derivatives operations.",
-      "Reduced manual reconciliation time by 50% through automated reporting standardization.",
-      "Established standard operations reporting for bank collateral custody and loan blotter updates."
+      "Engineered a dedicated SQL Server database to track derivative operations and bank collateral.",
+      "Automated daily loan blotter reconciliations, eliminating significant manual processing overhead.",
+      "Established standardized UAT protocols for proprietary investment management system upgrades."
     ]
   },
   {
@@ -43,11 +43,11 @@ export const PROFESSIONAL_EXPERIENCE: Experience[] = [
     location: "Kennesaw, GA",
     role: "Senior Business Specialist",
     period: "2017 – 2018",
-    description: "Led system analysis and change requirements for a national loan servicing center.",
+    description: "Managed system auditing and technical change requirements for a national loan servicing center.",
     achievements: [
-      "Resolved 30+ complex enterprise-level trouble tickets within the first year.",
-      "Designed UAT test plans for 'Tempo', a major large-scale risk mitigation platform integration.",
-      "Deployed first-of-its-kind loan servicing database to audit and cure errors across 10,000+ files."
+      "Led UAT testing for 'Tempo', a large-scale enterprise risk mitigation platform.",
+      "Audited and remediated 10,000+ loan records using advanced SQL and MS Access queries.",
+      "Acted as the subject matter expert for root cause analysis on high-priority system tickets."
     ]
   }
 ];
@@ -55,15 +55,15 @@ export const PROFESSIONAL_EXPERIENCE: Experience[] = [
 export const SKILLS: SkillCategory[] = [
   {
     category: "Technical Expertise",
-    items: ["Azure SQL", "Tableau", "Power BI", "MS Excel (Expert)", "MS SQL Server", "SSIS", "SAP Data Warehouse"]
+    items: ["Azure SQL", "Tableau Desktop/Server", "Power BI", "MS SQL Server", "SSIS", "Excel Expert (VBA/PowerQuery)"]
   },
   {
-    category: "Operational Systems",
-    items: ["ServiceNow!", "MS Visio", "MS Access", "MS SharePoint", "iMeet Central"]
+    category: "Operational Tools",
+    items: ["ServiceNow!", "MS Visio", "Salesforce", "iMeet Central", "SAP Data Warehouse"]
   },
   {
     category: "Strategic Frameworks",
-    items: ["Process Improvement", "UAT Testing", "Root Cause Analysis", "Pareto Analysis", "Balanced Scorecards"]
+    items: ["Process Improvement", "UAT Testing", "Root Cause Analysis", "Data Governance", "Change Management"]
   }
 ];
 
@@ -71,7 +71,7 @@ export const EDUCATION: Education[] = [
   {
     degree: "Bachelor of Science in Business Administration",
     institution: "Oregon State University",
-    location: "Corvallis, Oregon",
+    location: "Corvallis, OR",
     details: "Concentration in Management, Minor in Economics"
   }
 ];
@@ -81,30 +81,48 @@ export const CERTIFICATIONS: Certification[] = [
     name: "Microsoft Certified: Power BI Data Analyst Associate",
     issuer: "Microsoft",
     date: "2024",
-    status: "In Progress"
+    status: "Active"
+  },
+  {
+    name: "Tableau Desktop Specialist",
+    issuer: "Tableau",
+    date: "2023",
+    status: "Active"
+  },
+  {
+    name: "Querying Microsoft SQL Server 2012/2014",
+    issuer: "Microsoft",
+    date: "2020",
+    status: "Certified"
+  },
+  {
+    name: "Microsoft Office Specialist: Excel Expert",
+    issuer: "Microsoft",
+    date: "2019",
+    status: "Certified"
   }
 ];
 
 export const REFERENCES: Reference[] = [
   {
-    name: "Marcus Sterling",
-    title: "Chief Operating Officer",
-    relation: "Direct Supervisor at Northpoint",
-    quote: "Brian bridges the gap between technical data and business strategy. His reporting systems transformed our monthly close process and enterprise accuracy.",
-    avatar: "ref1.jpg"
+    name: "Professional Endorsement 1",
+    title: "Paste Colleague Name & Title Here",
+    relation: "Direct Report / Supervisor",
+    quote: "Paste the actual quote from Brian's LinkedIn Recommendations section here to ensure it is 100% authentic.",
+    avatar: ""
   },
   {
-    name: "Sarah Chen",
-    title: "VP of Operations",
-    relation: "Collaborator at HomeBridge",
-    quote: "His attention to detail and ability to solve complex system issues is unmatched. Brian builds the databases that fix enterprise problems before they scale.",
-    avatar: "ref2.jpg"
+    name: "Professional Endorsement 2",
+    title: "Paste Colleague Name & Title Here",
+    relation: "Former Supervisor",
+    quote: "Paste the actual quote from Brian's LinkedIn Recommendations section here to ensure it is 100% authentic.",
+    avatar: ""
   },
   {
-    name: "David Vance",
-    title: "Director of Analytics",
-    relation: "Senior Partner at Angel Oak",
-    quote: "A rare talent who understands both the SQL backend and the high-level business operational needs. One of the most capable analysts I have worked with.",
-    avatar: "ref3.jpg"
+    name: "Professional Endorsement 3",
+    title: "Paste Colleague Name & Title Here",
+    relation: "Collaborator",
+    quote: "Paste the actual quote from Brian's LinkedIn Recommendations section here to ensure it is 100% authentic.",
+    avatar: ""
   }
 ];
