@@ -8,7 +8,6 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
   const [imageError, setImageError] = useState(false);
 
-  // Using standard relative paths - ensure files are in the public/root directory
   const imageSrc = contactInfo.profileImage;
   const resumeSrc = contactInfo.resumeUrl;
 
@@ -71,7 +70,7 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
                 <img 
                   src={imageSrc} 
                   alt={contactInfo.name}
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover transition-all duration-700 block"
                   onError={() => {
                     console.error("Hero: Failed to load image at " + imageSrc);
                     setImageError(true);
