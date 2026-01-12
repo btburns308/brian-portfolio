@@ -74,13 +74,20 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
             </div>
           </div>
 
-          {/* Right Column: Still Picture */}
+          {/* Right Column: Picture */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="w-full max-w-md aspect-[4/5] overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl bg-slate-100">
+            <div className="relative w-full max-w-md aspect-[4/5] overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl bg-slate-200">
+              
+              {/* Initials Placeholder (Behind the image) */}
+              <div className="absolute inset-0 flex items-center justify-center bg-slate-800">
+                <span className="text-8xl font-black text-white/20">BB</span>
+              </div>
+
+              {/* Still Picture */}
               <img 
                 src={contactInfo.profileImage} 
                 alt={contactInfo.name}
-                className="w-full h-full object-cover"
+                className="relative w-full h-full object-cover z-10"
               />
             </div>
           </div>
