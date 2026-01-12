@@ -6,11 +6,11 @@ export const CONTACT_INFO = {
   phone: "(321) 591-4426",
   email: "btburns308@icloud.com",
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
-  // We use '/' because Vite automatically looks in the 'public' folder for these files
-  profileImage: "/brian-burns.jpg", 
+  // Using relative path to the public folder where the image resides
+  profileImage: "public/brian-burns.jpg", 
   fallbackImage: "", 
-  // Same for the resume
-  resumeUrl: "/Brian_Burns_Resume.pdf", 
+  // Using relative path for the resume download
+  resumeUrl: "public/Brian_Burns_Resume.pdf", 
   summary: "Extensive experience in large scale operational management, process improvement initiatives, business analysis, business intelligence, and systems analyst roles.",
   headline: "Operations / Business / Business Intelligence Analyst"
 };
