@@ -6,7 +6,7 @@ export const CONTACT_INFO = {
   phone: "(321) 591-4426",
   email: "btburns308@icloud.com",
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
-  // Ensure these files are in your root folder
+  // Using direct filenames for maximum compatibility
   profileImage: "brian-burns.jpg", 
   resumeUrl: "Brian_Burns_Resume.pdf", 
   summary: "Extensive experience in large scale operational management, process improvement initiatives, business analysis, business intelligence, and systems analyst roles.",
@@ -49,7 +49,7 @@ export const PROFESSIONAL_EXPERIENCE: Experience[] = [
     achievements: [
       "Closed over 31 complicated enterprise level trouble and change tickets in less than one year.",
       "Created all UAT test plans for the integration of Tempo, a large-scale risk mitigation platform.",
-      "Deployed the first loan servicing database used to cure document errors for over 10,000 files."
+      "Deployed the first loan servicing database used to document and cure document errors for over 10,000 files."
     ]
   }
 ];
