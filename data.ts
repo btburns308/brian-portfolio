@@ -6,9 +6,8 @@ export const CONTACT_INFO = {
   phone: "(321) 591-4426",
   email: "btburns308@icloud.com",
   linkedin: "https://www.linkedin.com/in/brian-burns-b7716a4/",
-  // This 'new URL' logic helps the browser find the files in the same folder as your code
-  profileImage: new URL('./brian-burns.jpg', import.meta.url).href, 
-  resumeUrl: new URL('./Brian_Burns_Resume.pdf', import.meta.url).href, 
+  profileImage: "brian-burns.jpg", 
+  resumeUrl: "Brian_Burns_Resume.pdf", 
   summary: "Extensive experience in large scale operational management, process improvement initiatives, business analysis, business intelligence, and systems analyst roles.",
   headline: "Operations / Business / Business Intelligence Analyst"
 };
