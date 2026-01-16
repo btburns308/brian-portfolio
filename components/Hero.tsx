@@ -7,6 +7,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
   const [imageError, setImageError] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const imageSrc = contactInfo.profileImage;
   const resumeSrc = contactInfo.resumeUrl;
@@ -70,7 +71,8 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
                 <img 
                   src={imageSrc} 
                   alt={contactInfo.name}
-                  className="w-full h-full object-cover transition-all duration-700 block"
+                  onLoad={() => setIsLoaded(true)}
+                  className={`w-full h-full object-cover transition-opacity duration-1000 block ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
                   onError={() => {
                     console.error("Hero: Failed to load image at " + imageSrc);
                     setImageError(true);
@@ -87,10 +89,16 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
                   </p>
                 </div>
               )}
+              {/* Optional Shimmer/Loading state */}
+              {!isLoaded && !imageError && (
+                <div className="absolute inset-0 bg-slate-100 animate-pulse"></div>
+              )}
             </div>
           </div>
         </div>
       </div>
     </section>
   );
-}; export default Hero;
+};
+
+export default Hero;
