@@ -1,4 +1,3 @@
-
 export interface Achievement {
   text: string;
 }
@@ -37,4 +36,11 @@ export interface Certification {
   issuer: string;
   date: string;
   status?: string;
+}
+
+export interface Passion {
+  title: string;
+  role: string;
+  description: string;
+  highlights: string[];
 }
