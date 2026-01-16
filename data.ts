@@ -23,7 +23,7 @@ export const PROFESSIONAL_EXPERIENCE: Experience[] = [
       "Managing Azure SQL enterprise reporting database through complex data transformation, ETL imports (SSIS/SQL Agent), and stored procedures with 100% balance to volume.",
       "Executing, validating and delivering monthly, quarterly, and fiscal quarterly cadence reports for the entire enterprise (50+ and growing).",
       "Core BI member for new report development and release in Azure SQL via Tableau Server and Power BI for all departments.",
-      "Developed and re-deployed over 30 core business reports in Tableau Server as stored procedures, drastically decreasing report load times."
+      "Developed and re-deployed over 30 core business reports in Tableu Server as stored procedures, drastically decreasing report load times."
     ]
   },
   {
@@ -217,13 +217,13 @@ export const REFERENCES: Reference[] = [
 
 export const PASSIONS: Passion[] = [
   {
-    title: "Musical Performance & Discipline",
+    title: "Rhythm of Excellence",
     role: "Expert Trained Drummer",
-    description: "Leveraging the precision, timing, and collaborative dynamics of professional percussion to drive excellence in operational environments.",
+    description: "The same precision required to hold a complex jazz pocket is what I bring to large-scale data systems. Excellence isn't just a goal; it's a cadence.",
     highlights: [
       "First Chair Jazz Ensemble at Oregon State University",
       "Current Worship Drummer at Rising Hills Church",
-      "Decades of technical training in rhythmic complexity and live performance"
+      "Decades of technical rhythmic mastery & collaborative performance"
     ]
   }
 ];
