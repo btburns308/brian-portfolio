@@ -23,7 +23,6 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Update active section
       const sections = ['home', 'skills', 'experience', 'certifications', 'references', 'passion', 'education'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
@@ -34,8 +33,6 @@ const App: React.FC = () => {
         return false;
       });
       if (current) setActiveSection(current);
-
-      // Show/hide scroll to top button
       setShowScrollTop(window.scrollY > 500);
     };
 
@@ -70,7 +67,7 @@ const App: React.FC = () => {
           <ReferencesSection references={REFERENCES} />
         </section>
 
-        <section id="passion" className="py-24 bg-white border-y border-slate-50">
+        <section id="passion" className="py-32 bg-white">
           <PassionSection passions={PASSIONS} />
         </section>
 
@@ -82,7 +79,7 @@ const App: React.FC = () => {
             </h2>
             <div className="space-y-8">
               {EDUCATION.map((edu, idx) => (
-                <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-blue-100 transition-colors">
+                <div key={idx} className="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-blue-100 transition-colors">
                   <h3 className="text-xl font-bold text-slate-900">{edu.degree}</h3>
                   <p className="text-blue-600 font-medium mb-2">{edu.institution}</p>
                   <p className="text-slate-500 text-sm">{edu.location}</p>
@@ -96,7 +93,6 @@ const App: React.FC = () => {
 
       <Footer contactInfo={CONTACT_INFO} />
 
-      {/* Back to Top Button */}
       <button 
         onClick={scrollToTop}
         className={`fixed bottom-8 right-8 p-4 bg-slate-900 text-white rounded-full shadow-2xl transition-all duration-300 z-50 hover:bg-blue-600 hover:-translate-y-1 ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}
