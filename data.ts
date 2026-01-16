@@ -1,4 +1,4 @@
-import { Experience, SkillCategory, Reference, Education, Certification } from './types';
+import { Experience, SkillCategory, Reference, Education, Certification, Passion } from './types';
 
 export const CONTACT_INFO = {
   name: "Brian Burns",
@@ -212,5 +212,18 @@ export const REFERENCES: Reference[] = [
     relation: "Business Analysis",
     quote: "Closed complicated enterprise-level tickets and documentation for large-scale risk mitigation platform integration.",
     avatar: ""
+  }
+];
+
+export const PASSIONS: Passion[] = [
+  {
+    title: "Musical Performance & Discipline",
+    role: "Expert Trained Drummer",
+    description: "Leveraging the precision, timing, and collaborative dynamics of professional percussion to drive excellence in operational environments.",
+    highlights: [
+      "First Chair Jazz Ensemble at Oregon State University",
+      "Current Worship Drummer at Rising Hills Church",
+      "Decades of technical training in rhythmic complexity and live performance"
+    ]
   }
 ];
