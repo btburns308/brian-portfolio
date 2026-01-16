@@ -12,6 +12,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, contactInfo }) => {
     { label: 'Experience', id: 'experience' },
     { label: 'Accreditation', id: 'certifications' },
     { label: 'References', id: 'references' },
+    { label: 'Passion', id: 'passion' },
   ];
 
   return (
