@@ -5,7 +5,8 @@ import {
   SKILLS, 
   REFERENCES, 
   EDUCATION,
-  CERTIFICATIONS
+  CERTIFICATIONS,
+  PASSIONS
 } from './data';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -13,6 +14,7 @@ import ExperienceSection from './components/ExperienceSection';
 import SkillsSection from './components/SkillsSection';
 import ReferencesSection from './components/ReferencesSection';
 import CertificationsSection from './components/CertificationsSection';
+import PassionSection from './components/PassionSection';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
@@ -22,7 +24,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       // Update active section
-      const sections = ['home', 'skills', 'experience', 'certifications', 'references', 'education'];
+      const sections = ['home', 'skills', 'experience', 'certifications', 'references', 'passion', 'education'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -66,6 +68,10 @@ const App: React.FC = () => {
 
         <section id="references" className="py-24 bg-white">
           <ReferencesSection references={REFERENCES} />
+        </section>
+
+        <section id="passion" className="py-24 bg-white border-y border-slate-50">
+          <PassionSection passions={PASSIONS} />
         </section>
 
         <section id="education" className="py-24 bg-slate-50 border-t border-slate-100">
