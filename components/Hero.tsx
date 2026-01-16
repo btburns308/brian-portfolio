@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 interface HeroProps {
   contactInfo: any;
@@ -9,7 +9,10 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
   const [imageError, setImageError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const imageSrc = contactInfo.profileImage;
+  // Use a memoized timestamp to prevent the image from re-loading on every render,
+  // but ensure it loads the newest version from the server on initial page load.
+  const revisionSuffix = useMemo(() => `?rev=${Date.now()}`, []);
+  const imageSrc = `${contactInfo.profileImage}${revisionSuffix}`;
   const resumeSrc = contactInfo.resumeUrl;
 
   return (
@@ -66,7 +69,7 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
 
           {/* Right: Image */}
           <div className="w-full lg:w-2/5 order-1 lg:order-2">
-            <div className="relative aspect-[4/5] bg-slate-100 rounded-sm overflow-hidden shadow-2xl border-b-[16px] border-slate-900">
+            <div className="relative aspect-[4/5] bg-slate-50 rounded-sm overflow-hidden shadow-2xl border border-slate-100">
               {!imageError ? (
                 <img 
                   src={imageSrc} 
@@ -93,6 +96,8 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
               {!isLoaded && !imageError && (
                 <div className="absolute inset-0 bg-slate-100 animate-pulse"></div>
               )}
+              {/* Subtle Overlay to ensure contrast */}
+              <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5"></div>
             </div>
           </div>
         </div>
