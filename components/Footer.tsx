@@ -32,6 +32,7 @@ const Footer: React.FC<FooterProps> = ({ contactInfo }) => {
                 <li><a href="#certifications" className="text-gray-300 hover:text-white transition-colors">Certifications</a></li>
                 <li><a href="#skills" className="text-gray-300 hover:text-white transition-colors">Skills</a></li>
                 <li><a href="#references" className="text-gray-300 hover:text-white transition-colors">References</a></li>
+                <li><a href="#passion" className="text-gray-300 hover:text-white transition-colors">Passion</a></li>
               </ul>
             </div>
             <div>
