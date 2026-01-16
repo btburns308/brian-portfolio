@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 
 interface HeroProps {
   contactInfo: any;
@@ -9,11 +9,8 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
   const [imageError, setImageError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Force the browser to fetch the absolute latest version of the file on every page load
-  const imageSrc = useMemo(() => {
-    return `${contactInfo.profileImage}?t=${new Date().getTime()}`;
-  }, [contactInfo.profileImage]);
-
+  // Simple cache busting to ensure the latest upload is always fetched
+  const imageSrc = `${contactInfo.profileImage}?v=${new Date().getTime()}`;
   const resumeSrc = contactInfo.resumeUrl;
 
   return (
@@ -70,13 +67,13 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
 
           {/* Right: Image */}
           <div className="w-full lg:w-2/5 order-1 lg:order-2">
-            <div className="relative w-full bg-white rounded-sm overflow-hidden shadow-2xl border border-slate-100 min-h-[400px] flex items-center justify-center">
+            <div className="relative aspect-[4/5] bg-slate-50 rounded-sm overflow-hidden shadow-2xl border border-slate-100">
               {!imageError ? (
                 <img 
                   src={imageSrc} 
                   alt={contactInfo.name}
                   onLoad={() => setIsLoaded(true)}
-                  className={`w-full h-auto transition-opacity duration-1000 block ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  className={`w-full h-full object-cover object-center transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
                   onError={() => {
                     console.error("Hero: Failed to load image at " + imageSrc);
                     setImageError(true);
@@ -89,15 +86,15 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
                   </div>
                   <p className="text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] mb-2">Check File Location</p>
                   <p className="text-slate-400 text-[9px] leading-relaxed">
-                    Ensure <strong>brian-burns.jpg</strong> is in the same folder as index.html
+                    Ensure <strong>brian-burns.jpg</strong> is in the same folder.
                   </p>
                 </div>
               )}
-              {/* Optional Shimmer/Loading state */}
+              {/* Subtle Loading Shimmer */}
               {!isLoaded && !imageError && (
-                <div className="absolute inset-0 bg-white animate-pulse"></div>
+                <div className="absolute inset-0 bg-slate-100 animate-pulse"></div>
               )}
-              {/* Subtle Overlay to ensure contrast without adding heavy borders */}
+              {/* Subtle glass-like overlay for depth */}
               <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5"></div>
             </div>
           </div>
