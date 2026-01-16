@@ -9,10 +9,11 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
   const [imageError, setImageError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Use a memoized timestamp to prevent the image from re-loading on every render,
-  // but ensure it loads the newest version from the server on initial page load.
-  const revisionSuffix = useMemo(() => `?rev=${Date.now()}`, []);
-  const imageSrc = `${contactInfo.profileImage}${revisionSuffix}`;
+  // Force the browser to fetch the absolute latest version of the file on every page load
+  const imageSrc = useMemo(() => {
+    return `${contactInfo.profileImage}?t=${new Date().getTime()}`;
+  }, [contactInfo.profileImage]);
+
   const resumeSrc = contactInfo.resumeUrl;
 
   return (
@@ -69,13 +70,13 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
 
           {/* Right: Image */}
           <div className="w-full lg:w-2/5 order-1 lg:order-2">
-            <div className="relative aspect-[4/5] bg-slate-50 rounded-sm overflow-hidden shadow-2xl border border-slate-100">
+            <div className="relative w-full bg-white rounded-sm overflow-hidden shadow-2xl border border-slate-100 min-h-[400px] flex items-center justify-center">
               {!imageError ? (
                 <img 
                   src={imageSrc} 
                   alt={contactInfo.name}
                   onLoad={() => setIsLoaded(true)}
-                  className={`w-full h-full object-cover transition-opacity duration-1000 block ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  className={`w-full h-auto transition-opacity duration-1000 block ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
                   onError={() => {
                     console.error("Hero: Failed to load image at " + imageSrc);
                     setImageError(true);
@@ -94,9 +95,9 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
               )}
               {/* Optional Shimmer/Loading state */}
               {!isLoaded && !imageError && (
-                <div className="absolute inset-0 bg-slate-100 animate-pulse"></div>
+                <div className="absolute inset-0 bg-white animate-pulse"></div>
               )}
-              {/* Subtle Overlay to ensure contrast */}
+              {/* Subtle Overlay to ensure contrast without adding heavy borders */}
               <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5"></div>
             </div>
           </div>
