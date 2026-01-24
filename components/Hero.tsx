@@ -8,8 +8,8 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
   const [imageError, setImageError] = useState(false);
 
-  // Using simple source without extra params to ensure browser picks it up directly from root
-  const imageSrc = contactInfo.profileImage;
+  // Added a cache buster and absolute root check
+  const imageSrc = `./${contactInfo.profileImage}?v=${new Date().getTime()}`;
   const resumeSrc = contactInfo.resumeUrl;
 
   return (
@@ -78,17 +78,16 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
                   }}
                 />
               ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 p-12 text-center">
+                <div className="absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-slate-100 p-12 text-center">
                   <div className="w-32 h-32 rounded-full bg-slate-900 flex items-center justify-center mb-8 shadow-inner">
                     <span className="text-4xl font-black text-white">BB</span>
                   </div>
-                  <p className="text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] mb-2">Image Not Detected</p>
+                  <p className="text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] mb-2">Photo Unavailable</p>
                   <p className="text-slate-400 text-[9px] leading-relaxed">
-                    Please ensure <strong>{contactInfo.profileImage}</strong> is in the project root.
+                    Verify file <strong>{contactInfo.profileImage}</strong> exists in project root.
                   </p>
                 </div>
               )}
-              {/* High-end contrast overlay */}
               <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5"></div>
             </div>
           </div>
