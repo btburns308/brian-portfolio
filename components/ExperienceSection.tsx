@@ -1,7 +1,9 @@
 import React from 'react';
 import { Experience } from '../types';
 
-interface ExperienceProps { experiences: Experience[]; }
+interface ExperienceProps { 
+  experiences: Experience[]; 
+}
 
 const ExperienceSection: React.FC<ExperienceProps> = ({ experiences }) => {
   return (
@@ -52,4 +54,6 @@ const ExperienceSection: React.FC<ExperienceProps> = ({ experiences }) => {
       </div>
     </div>
   );
-}; export default ExperienceSection;
+};
+
+export default ExperienceSection;
