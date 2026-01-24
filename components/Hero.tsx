@@ -7,10 +7,9 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
   const [imageError, setImageError] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
 
-  // Simple cache busting to ensure the latest upload is always fetched
-  const imageSrc = `${contactInfo.profileImage}?v=${new Date().getTime()}`;
+  // Simplified image source. Using a static version param helps with caching without constant re-renders.
+  const imageSrc = `${contactInfo.profileImage}?v=1.0`;
   const resumeSrc = contactInfo.resumeUrl;
 
   return (
@@ -67,14 +66,13 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
 
           {/* Right: Image */}
           <div className="w-full lg:w-2/5 order-1 lg:order-2">
-            <div className="relative aspect-[4/5] bg-slate-50 rounded-sm overflow-hidden shadow-2xl border border-slate-100">
+            <div className="relative aspect-[4/5] bg-white rounded-sm overflow-hidden shadow-2xl border border-slate-100 flex items-center justify-center">
               {!imageError ? (
                 <img 
                   src={imageSrc} 
                   alt={contactInfo.name}
-                  onLoad={() => setIsLoaded(true)}
-                  className={`w-full h-full object-cover object-center transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-                  onError={() => {
+                  className="w-full h-full object-cover object-top block"
+                  onError={(e) => {
                     console.error("Hero: Failed to load image at " + imageSrc);
                     setImageError(true);
                   }}
@@ -84,17 +82,13 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
                   <div className="w-32 h-32 rounded-full bg-slate-900 flex items-center justify-center mb-8">
                     <span className="text-4xl font-black text-white">BB</span>
                   </div>
-                  <p className="text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] mb-2">Check File Location</p>
+                  <p className="text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] mb-2">Image Not Found</p>
                   <p className="text-slate-400 text-[9px] leading-relaxed">
-                    Ensure <strong>brian-burns.jpg</strong> is in the same folder.
+                    Check file: <strong>brian-burns.jpg</strong>
                   </p>
                 </div>
               )}
-              {/* Subtle Loading Shimmer */}
-              {!isLoaded && !imageError && (
-                <div className="absolute inset-0 bg-slate-100 animate-pulse"></div>
-              )}
-              {/* Subtle glass-like overlay for depth */}
+              {/* Subtle Overlay to ensure contrast */}
               <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5"></div>
             </div>
           </div>
