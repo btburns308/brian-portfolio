@@ -20,7 +20,7 @@ export const PROFESSIONAL_EXPERIENCE: Experience[] = [
     period: "2021 – Present",
     description: "Responsible for managing the company's enterprise reporting database (Azure SQL) monthly close-out process, report development and deployment.",
     achievements: [
-      "Managing Azure SQL enterprise reporting database through complex data transformation, ETL imports (SSIS/SQL Agent), and stored procedures with 100% balance to volume.",
+      "Managing Azure SQL enterprise reporting database through complex data transformation, ETL imports (SSIS/SQL Agent), and stored procedures with 100% balance to system.",
       "Executing, validating and delivering monthly, quarterly, and fiscal quarterly cadence reports for the entire enterprise (50+ and growing).",
       "Core BI member for new report development and release in Azure SQL via Tableau Server and Power BI for all departments.",
       "Developed and re-deployed over 30 core business reports in Tableau Server as stored procedures, drastically decreasing report load times."
