@@ -23,7 +23,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'skills', 'experience', 'certifications', 'references', 'passion', 'education'];
+      const sections = ['home', 'skills', 'experience', 'certifications', 'education', 'references', 'passion'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -63,31 +63,31 @@ const App: React.FC = () => {
           <CertificationsSection certifications={CERTIFICATIONS} />
         </section>
 
-        <section id="references" className="py-24 bg-white">
+        <section id="education" className="py-24 bg-white border-b border-slate-100">
+          <div className="max-w-4xl mx-auto px-6">
+            <div className="text-center mb-20">
+              <h2 className="text-5xl font-black text-slate-900 mb-4 tracking-tighter uppercase">Education</h2>
+              <div className="w-24 h-2 bg-blue-600 mx-auto"></div>
+            </div>
+            <div className="space-y-8">
+              {EDUCATION.map((edu, idx) => (
+                <div key={idx} className="bg-white p-10 rounded-sm shadow-sm border border-slate-100 hover:border-blue-600 transition-all duration-300 text-center md:text-left">
+                  <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight">{edu.degree}</h3>
+                  <p className="text-blue-600 font-bold mb-2 uppercase text-xs tracking-widest">{edu.institution}</p>
+                  <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">{edu.location}</p>
+                  {edu.details && <p className="mt-4 text-slate-700 leading-relaxed italic serif font-light">{edu.details}</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="references" className="py-24 bg-slate-50 border-b border-slate-100">
           <ReferencesSection references={REFERENCES} />
         </section>
 
         <section id="passion" className="py-32 bg-white">
           <PassionSection passions={PASSIONS} />
-        </section>
-
-        <section id="education" className="py-24 bg-slate-50 border-t border-slate-100">
-          <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-900 mb-12 flex items-center">
-              <span className="w-8 h-1 bg-blue-600 mr-4"></span>
-              Education
-            </h2>
-            <div className="space-y-8">
-              {EDUCATION.map((edu, idx) => (
-                <div key={idx} className="bg-white p-8 rounded-sm shadow-sm border border-slate-100 hover:border-blue-100 transition-colors">
-                  <h3 className="text-xl font-bold text-slate-900">{edu.degree}</h3>
-                  <p className="text-blue-600 font-medium mb-2">{edu.institution}</p>
-                  <p className="text-slate-500 text-sm">{edu.location}</p>
-                  {edu.details && <p className="mt-4 text-slate-700 leading-relaxed italic">{edu.details}</p>}
-                </div>
-              ))}
-            </div>
-          </div>
         </section>
       </main>
 
