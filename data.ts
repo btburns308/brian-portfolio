@@ -101,15 +101,7 @@ export const PROFESSIONAL_EXPERIENCE: Experience[] = [
 export const SKILLS: SkillCategory[] = [
   {
     category: "Technical Proficiencies",
-    items: ["Azure SQL", "Tableau Desktop / Server", "Power BI", "Microsoft SQL Server", "MS Access", "MS Excel (Advanced)"]
-  },
-  {
-    category: "Platforms & Tools",
-    items: ["Windows", "Cloud", "MS Visio", "ServiceNow!", "SAP Data Warehouse", "iMeet Central", "SharePoint"]
-  },
-  {
-    category: "Operational Strategy",
-    items: ["Process Improvement", "UAT Testing", "Root Cause Analysis", "Capacity Modeling", "Total Quality Management (TQM)"]
+    items: ["Azure SQL", "Tableau Desktop / Server", "Power BI Desktop / Server", "Microsoft SQL Server", "MS Access", "MS Excel (Advanced)"]
   }
 ];
 
@@ -138,56 +130,8 @@ export const CERTIFICATIONS: Certification[] = [
   {
     name: "Microsoft Certified: Power BI Data Analyst Associate",
     issuer: "Microsoft",
-    date: "2024",
-    status: "Verified"
-  },
-  {
-    name: "Tableau Desktop Specialist",
-    issuer: "Tableau",
-    date: "2023",
-    status: "Verified"
-  },
-  {
-    name: "Google Data Analytics Specialization",
-    issuer: "Coursera / Google",
-    date: "2024",
-    status: "Verified"
-  },
-  {
-    name: "SQL for Data Science",
-    issuer: "University of California, Davis",
-    date: "2023",
-    status: "Verified"
-  },
-  {
-    name: "Excel Skills for Business Specialization",
-    issuer: "Macquarie University",
-    date: "2023",
-    status: "Verified"
-  },
-  {
-    name: "Data Visualization with Tableau Specialization",
-    issuer: "University of California, Davis",
-    date: "2023",
-    status: "Verified"
-  },
-  {
-    name: "Querying Microsoft SQL Server 2012/2014",
-    issuer: "Microsoft",
-    date: "2020",
-    status: "Verified"
-  },
-  {
-    name: "Microsoft Office Specialist: Excel Expert",
-    issuer: "Microsoft",
-    date: "2019",
-    status: "Verified"
-  },
-  {
-    name: "Production and Quality Dynamics Seminar - 1st Place Winner",
-    issuer: "Washington Mutual",
-    date: "2007",
-    status: "Awarded"
+    date: "2026",
+    status: "In Progress"
   }
 ];
 
@@ -218,8 +162,8 @@ export const REFERENCES: Reference[] = [
 export const PASSIONS: Passion[] = [
   {
     title: "The Rhythm of Analytics",
-    role: "Music-Literate Drummer",
-    description: "The same precision required to hold a complex jazz pocket is what I bring to large-scale data systems. Performance is about timing, teamwork, and a relentless pursuit of the perfect cadence.",
+    role: "Musically-Literate",
+    description: "Performance is about timing, teamwork, and a relentless pursuit of the perfect cadence.",
     highlights: [
       "First Chair Jazz Ensemble at Oregon State University",
       "Current Worship Drummer at Rising Hills Church",
