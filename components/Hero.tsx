@@ -8,8 +8,8 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
   const [imageError, setImageError] = useState(false);
 
-  // Simplified image source. Using a static version param helps with caching without constant re-renders.
-  const imageSrc = `${contactInfo.profileImage}?v=1.0`;
+  // Using simple source without extra params to ensure browser picks it up directly from root
+  const imageSrc = contactInfo.profileImage;
   const resumeSrc = contactInfo.resumeUrl;
 
   return (
@@ -66,29 +66,29 @@ const Hero: React.FC<HeroProps> = ({ contactInfo, id }) => {
 
           {/* Right: Image */}
           <div className="w-full lg:w-2/5 order-1 lg:order-2">
-            <div className="relative aspect-[4/5] bg-white rounded-sm overflow-hidden shadow-2xl border border-slate-100 flex items-center justify-center">
+            <div className="relative aspect-[4/5] bg-slate-50 rounded-sm overflow-hidden shadow-2xl border border-slate-100">
               {!imageError ? (
                 <img 
                   src={imageSrc} 
                   alt={contactInfo.name}
-                  className="w-full h-full object-cover object-top block"
-                  onError={(e) => {
+                  className="absolute inset-0 w-full h-full object-cover object-top"
+                  onError={() => {
                     console.error("Hero: Failed to load image at " + imageSrc);
                     setImageError(true);
                   }}
                 />
               ) : (
-                <div className="w-full h-full flex flex-col items-center justify-center bg-slate-50 p-12 text-center">
-                  <div className="w-32 h-32 rounded-full bg-slate-900 flex items-center justify-center mb-8">
+                <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 p-12 text-center">
+                  <div className="w-32 h-32 rounded-full bg-slate-900 flex items-center justify-center mb-8 shadow-inner">
                     <span className="text-4xl font-black text-white">BB</span>
                   </div>
-                  <p className="text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] mb-2">Image Not Found</p>
+                  <p className="text-slate-900 text-[10px] font-black uppercase tracking-[0.2em] mb-2">Image Not Detected</p>
                   <p className="text-slate-400 text-[9px] leading-relaxed">
-                    Check file: <strong>brian-burns.jpg</strong>
+                    Please ensure <strong>{contactInfo.profileImage}</strong> is in the project root.
                   </p>
                 </div>
               )}
-              {/* Subtle Overlay to ensure contrast */}
+              {/* High-end contrast overlay */}
               <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5"></div>
             </div>
           </div>
